@@ -10,7 +10,7 @@ SRCS			=
 $(NAME):		$(OBJS)
 				make -C ./libft 
 				cp libft/libft.a $(NAME)
-#				$(CC) $(SRCS) $(LDLIBS) $(CFLAGS) (Pour main et avoir l'executable)
+#				$(CC) $(SRCS) $(LDLIBS) $(CFLAGS) (Pour main et avoir l'executable) 
 				ar rcs  $(NAME) $(OBJS) 
 
 all:			$(NAME) 
