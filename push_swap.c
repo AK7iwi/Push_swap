@@ -6,7 +6,17 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/25 00:41:29 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/25 20:11:27 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+int main(int argc, char **argv)
+{
+	if(argc < 8)
+		printf("%s", argv[1]);
+	else
+		return(0);
+	return(0);
+}
