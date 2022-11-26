@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/26 01:45:52 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/26 01:47:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int push_swap(t_pile *pile)
 int main(int argc, char **argv)
 {
 	int i;
-	t_pile t;
+	t_pile *t;
 	
 	i = 1;
 	while(argv[i] && argc < 5)
