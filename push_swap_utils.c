@@ -1,28 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/26 00:58:46 by mfeldman         ###   ########.fr       */
+/*   Created: 2022/11/26 00:20:55 by mfeldman          #+#    #+#             */
+/*   Updated: 2022/11/26 01:01:46 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdio.h>
-# include "./libft/libft.h"
-
-typedef struct s_pile
-{
-	int				apile;
-	int				*bpile;
-	
-}	t_pile;
-
-int push_swap(t_pile pile);
-
-#endif
+/*fcts instructions*/
