@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/26 18:32:44 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/27 03:05:24 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,36 @@
 
 /*Algo de tri*/
 
-int push_swap(t_pile *pile)
-{
-	pile->apile = 5;
-	return(pile->apile);
-}
+// t_stack *push_swap(t_stack *prestack)
+// {
+// 	if(ft_intlen(prestack.astack) < 100)
+// 		algo1();
+// 	else if(ft_intlen(prestack.astack) >= 100 && ft_intlen(prestack.astack) <= 500)
+// 		algo2()
+// 	else if (ft_intlen(prestack.astack)> 500)
+// 		algo3()
+	
+// 	t_stack *stack;
+// 	int i;
+// 	i = 0;
+// 	while(i < 5)
+// 		stack->astack[i++] = 5;
+// 	return(stack);
+// }
 
 /*Message d'erreur*/
 
 int main(int argc, char **argv)
 {
 	int i;
-	// t_pile *t; 
+	t_stack stack;
 	
-	i = 0;
+	i = 1;
 	while(argv[i] && argc != 0)
 	{
-		printf("%s", argv[i]);
-		// printf("%d",push_swap(t));
+		stack.stack_a[i] = ft_atoi(argv[i]);
 		i++;
+		printf("%ls", stack.stack_a);
 	}
 	return(0);
 }
