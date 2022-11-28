@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/28 01:59:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/29 00:11:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 
 /*Structure pour avoir qu'un pointeur*/
 
-// typedef struct s_dlist
+// typedef struct
 // {
 //     s_stack *first;
 // 	s_stack *last;
@@ -35,5 +35,6 @@ typedef struct s_stack
 int *push_swap(t_stack *stack);
 t_stack push(t_stack **p, int val);
 void free_stack(t_stack **p);
+char **parsing(char *argv);
 
 #endif

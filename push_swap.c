@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/28 19:51:51 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/29 00:15:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,19 @@
 /*Message d'erreur*/
 
 
-
 int main(int argc, char **argv)
 {
 	int i;
-
-	i = 1;
+	char **tab;
+	t_stack **stack;
+	
+	i = 0;
+	tab = NULL;
+	stack = NULL;
 	while(argv[i] && argc != 0)
 	{
-		printf("%s", argv[i]);
+		tab = parsing(argv[i]);
+		push(stack,**tab);
 		i++;
 	}
 	return(0);
