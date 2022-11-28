@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 08:53:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/28 02:42:39 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/28 21:08:28 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,19 +112,32 @@ char	**ft_split(char const *str, char c)
 	return (dest);
 }
 
-char **test()
+int main(int argc, char **argv)
 {
-	char *str;
-	char **str2;
-
-	str = malloc(sizeof(10000));
-	str = "Ouiiiij j ja k p";
-	str2 = ft_split(str, 'a');
-	return(str2);
-}
-
-int main()
-{
-	printf("%s",test());
+	int i;
+	int j;
+	int k;
+	char **tab;
+	
+	i = 0;
+	j = 0;
+	k = 0;
+	tab = NULL;
+	while(argv[i] && argc != 0)
+	{
+		tab = ft_split(argv[i], ' ');
+		i++;
+	}
+	while(tab[j] && argc !=0 )
+	{
+		while(tab[j][k])
+		{	
+			k++;
+			printf("%s%c%s","tab[j]1 : ", tab[j][k],"\n");
+		}
+		printf("%s%s%s","tab[j]2 : ", tab[j],"\n");
+		j++;
+	}
+	free(tab);
 	return(0);
 }

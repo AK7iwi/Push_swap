@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/28 02:40:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:51:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,17 @@
 
 /*Message d'erreur*/
 
+
+
 int main(int argc, char **argv)
 {
 	int i;
-	t_stack **stack;
-	stack = NULL;
-	
+
 	i = 1;
 	while(argv[i] && argc != 0)
 	{
-		**stack = push(stack, ft_atoi(argv[i]));
+		printf("%s", argv[i]);
 		i++;
 	}
-	free_stack(stack);
 	return(0);
 }
