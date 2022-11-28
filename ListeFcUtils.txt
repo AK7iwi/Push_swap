@@ -1,0 +1,4 @@
+/*Liste des fct possible;ent utile
+
+1 )/*Taille d'une liste*/
+int	ft_lstsize(t_list *lst)

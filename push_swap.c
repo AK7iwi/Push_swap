@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/27 03:05:24 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/28 01:20:07 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,14 @@
 int main(int argc, char **argv)
 {
 	int i;
-	t_stack stack;
+	t_stack **stack;
+	stack = NULL;
 	
 	i = 1;
 	while(argv[i] && argc != 0)
 	{
-		stack.stack_a[i] = ft_atoi(argv[i]);
+		push(stack, ft_atoi(argv[i]));
 		i++;
-		printf("%ls", stack.stack_a);
 	}
-	return(0);
+	free_stack(stack);
 }
-
-/*Essayer les structures (voir avec la lib)*/
-/*t_pile *t = ft_atoi(argv),va dans push_swap*/
-/*strcut dans struct*/
