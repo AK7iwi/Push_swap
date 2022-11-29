@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/29 21:54:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/29 22:27:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ typedef struct
 } t_listdc;
 
 void *push(t_stack **p, int val);
-void free_stack(dblist *l)
 char *parsing(char *argv);
-void *push_stack(t_listdc *l, int val);
+
+void initld(t_listdc *l);
+void *ldpush_stack(t_listdc *l, int val);
+void ldfree_stack(t_listdc *l);
 
 #endif

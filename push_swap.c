@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/29 20:30:47 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:29:04 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,17 @@ int main(int argc, char **argv)
 {
 	int i;
 	char *tab;
+	t_listdc *l;
 	
 	i = 0;
-	tab = NULL;
+	l = malloc(sizeof(t_listdc));
+	initld(l);
 	while(argv[i] && argc != 0)
 	{
 		tab = parsing(argv[i]);
 		i++;
-		printf("%s", tab);   
+		ldpush_stack(l, ft_atoi(tab));
 	}
-	free(tab);
+	ldfree_stack(l);
 	return(0);
 }

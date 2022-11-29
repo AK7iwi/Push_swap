@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/29 21:54:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:23:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 /*Ajouter un element a la stack*/
 
-void init(t_listdc *l)
+void initld(t_listdc *l)
 {
    l->first = NULL;
    l->last = NULL;
 }
 
-void *push_stack(t_listdc *l, int val)
+void *ldpush_stack(t_listdc *l, int val)
 {
 	t_stack *new;
 	new =  malloc(sizeof(t_stack));
@@ -41,16 +41,17 @@ void *push_stack(t_listdc *l, int val)
 
 /*Free une pile */
 
-void free_stack(dblist *l)
+void ldfree_stack(t_listdc *l)
 {
-   t_stack *tmp;
-   t_stack *pelem = l->first;
-   while(pelem)
-   {
-     tmp = pelem;
-     pelem = pelem->next;
-     free(tmp);
-   }
-   l->first = NULL;
-   l->last = NULL;
+	t_stack *tmp;
+	t_stack *pelem;
+	pelem = l->first;
+	while(pelem)
+	{
+		tmp = pelem;
+		pelem = pelem->next;
+		free(tmp);
+	}
+	l->first = NULL;
+	l->last = NULL;
 }
