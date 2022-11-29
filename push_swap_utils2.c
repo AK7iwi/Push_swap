@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/29 01:17:47 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/29 21:54:59 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,41 @@
 
 /*Ajouter un element a la stack*/
 
-t_stack push(t_stack **p, int val)
+void init(t_listdc *l)
 {
-        t_stack *element;
-		element = malloc(sizeof(t_stack));
-        if(!element)
-			return(*element); 
-        element->value = val;
-        element->prev = *p;
-        *p = element;
-		return(**p);
+   l->first = NULL;
+   l->last = NULL;
+}
+
+void *push_stack(t_listdc *l, int val)
+{
+	t_stack *new;
+	new =  malloc(sizeof(t_stack));
+	if(!new)
+		return(NULL);
+	new->value = val;
+	new->prev = l->last;
+	new->next = NULL;
+	if(l->last) 
+   		l->last->next = new;
+	else 
+		l->first = new;
+	l->last = new;
+	return(0);      
 }
 
 /*Free une pile */
 
-void free_stack(t_stack **p)
+void free_stack(dblist *l)
 {
-	t_stack *tmp;
-    while(*p)
-    {
-		tmp = (*p)->prev;
-        free(*p);
-        *p = tmp;
-    }
+   t_stack *tmp;
+   t_stack *pelem = l->first;
+   while(pelem)
+   {
+     tmp = pelem;
+     pelem = pelem->next;
+     free(tmp);
+   }
+   l->first = NULL;
+   l->last = NULL;
 }

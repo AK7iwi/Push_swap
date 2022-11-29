@@ -2,3 +2,8 @@
 
 1 )/*Taille d'une liste*/
 int	ft_lstsize(t_list *lst)
+
+
+
+
+Rajouter fct utile a la lib(liste doublemnt chainee )
