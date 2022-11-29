@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:44:01 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/29 00:16:33 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/29 01:07:58 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*Parsing */
+/* Parsing */
 
 char **parsing(char *argv) //char *
 {
@@ -28,7 +28,6 @@ char **parsing(char *argv) //char *
 		while(tab[j][k])
 		{	
 			k++;
-			printf("%s%c%s","tab[j]1 : ", tab[j][k],"\n");
 		}
 		printf("%s%s%s","tab[j]2 : ", tab[j],"\n");
 		j++;

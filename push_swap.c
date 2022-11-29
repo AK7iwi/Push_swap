@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/29 00:15:26 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/11/29 03:11:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int main(int argc, char **argv)
 		push(stack,**tab);
 		i++;
 	}
+	free(tab);
 	return(0);
 }
