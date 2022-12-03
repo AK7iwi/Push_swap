@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/29 23:29:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:12:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@
 /*Message d'erreur*/
 
 
+t_listdc fillstack(char *argv)
+{
+	
+}
+
+
+
+
 int main(int argc, char **argv)
 {
 	int i;
@@ -51,7 +59,9 @@ int main(int argc, char **argv)
 		tab = parsing(argv[i]);
 		i++;
 		ldpush_stack(l, ft_atoi(tab));
+		free(tab);
 	}
+	free(tab);
 	ldfree_stack(l);
 	return(0);
 }
