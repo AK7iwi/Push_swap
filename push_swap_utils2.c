@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/04 01:15:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/04 01:18:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void *ldfill_stack(t_listdc *l, int val)
 	else 
 		l->first = new;
 	l->last = new;
-	printf("%d",val);
 	return(0);      
 }
 
