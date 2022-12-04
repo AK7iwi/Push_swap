@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/03 21:00:31 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/04 01:15:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void initld(t_listdc *l)
    l->last = NULL;
 }
 
-void *ldpush_stack(t_listdc *l, int val)
+void *ldfill_stack(t_listdc *l, int val)
 {
 	t_stack *new;
 	new =  malloc(sizeof(t_stack));
@@ -36,6 +36,7 @@ void *ldpush_stack(t_listdc *l, int val)
 	else 
 		l->first = new;
 	l->last = new;
+	printf("%d",val);
 	return(0);      
 }
 
