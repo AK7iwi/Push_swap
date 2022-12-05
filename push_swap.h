@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/05 16:40:25 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:52:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct
 
 void *push(t_stack **p, int val);
 char *ft_parsing(char *argv);
-// void *push_swap(t_stack *stack);
+void *push_swap(t_stack *stack);
 
 void initld(t_listdc *l);
 void *ldfill_stack(t_listdc *l, int val);
