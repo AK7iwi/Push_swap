@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/04 01:18:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:51:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,21 @@ void *ldfill_stack(t_listdc *l, int val)
 		l->first = new;
 	l->last = new;
 	return(0);      
+}
+
+/*Taille liste chainee */ /*A faire pour dl*/
+
+int	ft_lstsize(t_stack *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }
 
 /*Free une pile */

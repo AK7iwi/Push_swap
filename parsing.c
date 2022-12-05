@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:44:01 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/29 23:14:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:45:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* Parsing */
 
-char *parsing(char *argv)
+char *ft_parsing(char *argv)
 {
 	char **tab;
 

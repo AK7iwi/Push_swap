@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 08:53:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/11/28 23:50:43 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/04 16:59:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,54 +112,20 @@ char	**ft_split(char const *str, char c)
 	return (dest);
 }
 
+
 int main(int argc, char **argv)
 {
 	int i;
 	char **tab;
-	t_stack **stack;
 	
 	i = 0;
-	tab = NULL;
-	stack = NULL;
+	
 	while(argv[i] && argc != 0)
 	{
-		tab = parsing(argv[i]);
-		push(stack,tab);
-		i++;
+		tab = ft_split(argv[i++], ' ');
+		printf("%s", *tab);
+		free(tab);
 	}
 	return(0);
 }
 
-int **parsing(char *argv)
-{
-	int i;
-	int j;
-	int k;
-	char **tab;
-	
-	i = 0;
-	j = 0;
-	k = 0;
-	tab = NULL;
-	while(argv[i])
-	{
-		tab = ft_split(argv[i], ' ');
-		i++;
-	}
-	while(tab[j] && argc !=0 )
-	{
-		while(tab[j][k])
-		{	
-			k++;
-			printf("%s%c%s","tab[j]1 : ", tab[j][k],"\n");
-		}
-		printf("%s%s%s","tab[j]2 : ", tab[j],"\n");
-		j++;
-	}
-	free(tab);
-	return(0);
-	
-}
-
-//Argment sortent 1 par 1 du main, pas besoin de split tt les args dun coup, un par un 
-// utiliser une autre fct pour le main 
