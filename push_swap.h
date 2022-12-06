@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/05 16:52:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/06 23:36:33 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ typedef struct
 	t_stack *last;
 } t_listdc;
 
-void *push(t_stack **p, int val);
 char *ft_parsing(char *argv);
-void *push_swap(t_stack *stack);
+void *push_swap(t_listdc *l);
 
-void initld(t_listdc *l);
-void *ldfill_stack(t_listdc *l, int val);
-void ldfree_stack(t_listdc *l);
+void 		ft_dlstfree(t_listdc *l);
+void 		ft_dlstinit(t_listdc *l);
+void 		*ft_dlstfill(t_listdc *l, int val);
+int			ft_dlstsize(t_listdc *l);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/05 16:51:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/06 23:37:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 /*Ajouter un element a la stack*/
 
-void initld(t_listdc *l)
+void ft_dlstinit(t_listdc *l)
 {
    l->first = NULL;
    l->last = NULL;
 }
 
-void *ldfill_stack(t_listdc *l, int val)
+void *ft_dlstfill(t_listdc *l, int val)
 {
 	t_stack *new;
 	new =  malloc(sizeof(t_stack));
@@ -38,25 +38,26 @@ void *ldfill_stack(t_listdc *l, int val)
 	l->last = new;
 	return(0);      
 }
+/*Taille liste doublement chainee */ 
 
-/*Taille liste chainee */ /*A faire pour dl*/
-
-int	ft_lstsize(t_stack *lst)
+int	ft_dlstsize(t_listdc *l)
 {
 	int	i;
+	t_stack *pelem;
 
 	i = 0;
-	while (lst)
+	pelem = l->first;
+	while (pelem)
 	{
 		i++;
-		lst = lst->next;
+		pelem = pelem->next;
 	}
 	return (i);
 }
 
-/*Free une pile */
+/*free la liste doublement chainee*/
 
-void ldfree_stack(t_listdc *l)
+void ft_dlstfree(t_listdc *l)
 {
 	t_stack *tmp;
 	t_stack *pelem;

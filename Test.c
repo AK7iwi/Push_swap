@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 08:53:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/04 16:59:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/06 23:44:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ char	**ft_split(char const *str, char c)
 	dest[word] = 0;
 	return (dest);
 }
-
 
 int main(int argc, char **argv)
 {
