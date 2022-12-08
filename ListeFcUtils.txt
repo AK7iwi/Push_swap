@@ -6,3 +6,6 @@ int	ft_lstsize(t_list *lst)
 Rajouter fct utile a la lib(liste doublemnt chainee )
 
 Fct avec t_listdc
+
+
+Proteger les malloc ainsi aue leurs retours

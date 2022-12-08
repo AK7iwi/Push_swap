@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/06 23:38:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/09 00:07:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void *push_swap(t_listdc *l)
 	int i;
 	i = ft_dlstsize(l);
 
-	if(i< 100)
+	if(i < 3)
 		printf("%d", i);
 		// algo1();
-	else if(i >= 100 && i <= 500)
+	if(i >= 3 && i <= 500)
 		printf("%d", i);
 		// algo2();
-	else if (i > 500)
+	if (i > 500)
 		printf("%d", i);
 		// algo3();
 	return(0);
@@ -44,6 +44,8 @@ int main(int argc, char **argv)
 	while(argv[i] && argc != 0)
 	{
 		tab = ft_parsing(argv[i++]);
+		if(!tab)
+			return(0);
 		ft_dlstfill(&l, ft_atoi(tab));
 		free(tab);
 	}

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/06 23:37:15 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/08 23:44:41 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 /*Fcts utils*/
 
-/*Ajouter un element a la stack*/
+/*Initisliser la dliste*/
 
 void ft_dlstinit(t_listdc *l)
 {
    l->first = NULL;
    l->last = NULL;
 }
+
+/*Ajouter un element a la stack*/
 
 void *ft_dlstfill(t_listdc *l, int val)
 {
@@ -38,7 +40,7 @@ void *ft_dlstfill(t_listdc *l, int val)
 	l->last = new;
 	return(0);      
 }
-/*Taille liste doublement chainee */ 
+/*Taille liste doublement chainee */ // -1 pour enlever l"exec
 
 int	ft_dlstsize(t_listdc *l)
 {
@@ -55,7 +57,7 @@ int	ft_dlstsize(t_listdc *l)
 	return (i);
 }
 
-/*free la liste doublement chainee*/
+/*Free la liste doublement chainee*/
 
 void ft_dlstfree(t_listdc *l)
 {
