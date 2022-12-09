@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/09 16:02:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:55:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 	if(ft_parsing(argv) == 0 && argc != 0)
 	{
 		printf("%s", "oui");
-		//while(argv[i++])
+		// while(argv[i++])
 		// ft_dlstfill(&l, ft_atoi(argv[i]));
 	}
 	else
