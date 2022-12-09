@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/09 11:58:43 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:02:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,17 @@ void *push_swap(t_listdc *l)
 
 int main(int argc, char **argv)
 {
-	int i;
+	// int i;
 	t_listdc l;
 	
-	i = 0;
+	// i = 0;
 	ft_dlstinit(&l);
 	// argv = ft_split(argv[1], ' ');
 	if(ft_parsing(argv) == 0 && argc != 0)
 	{
-		while(argv[i++])
-			ft_dlstfill(&l, ft_atoi(argv[i]));
+		printf("%s", "oui");
+		//while(argv[i++])
+		// ft_dlstfill(&l, ft_atoi(argv[i]));
 	}
 	else
 		ft_error();

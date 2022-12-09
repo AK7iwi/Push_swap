@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:44:01 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/09 12:08:10 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:49:21 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,21 @@ int ft_parsing(char **argv)
 	size_t i;
 	size_t j;
 
-	i = 0;
-	j = 0;
-	// trouver double boucle
-	while(argv[i][j])
+	i = 1;
+	while(argv[i])
 	{
+		j = 0;
+		if (argv[i][0] == '+' || argv[i][0] == '+')
+			j++;
 		if(ft_isdigit(argv[i][j]) == 0)
 			return(1);
-		j++;
+		while (argv[i][j])
+		{
+			if(ft_isdigit(argv[i][j]) == 0)
+				return(1);
+			j++;
+		}
+		i++;
 	} 
 	return(0); 
 }
