@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/09 11:49:45 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/10 00:31:21 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct
 int ft_parsing(char **argv);
 void *push_swap(t_listdc *l);
 void *ft_error(); //char **argv
-void ft_free_split(char **argv);
+void ft_free_split(int argc,char **argv);
 
 /*Fct liste chainee*/
 

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:44:01 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/09 16:57:41 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/10 00:30:50 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 /*Free argv split*/
 
-void ft_free_split(char **argv)
+void ft_free_split(int argc,char **argv)
 {
 	int i;
 
-	i = 0;
-	while(argv[i++])
+	i = 1;
+	while(i < argc)
+	{
 		free(argv[i]);
+		i++;
+	}
 	free(argv);
 }
 /* Erreur */
