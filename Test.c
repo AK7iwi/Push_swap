@@ -6,12 +6,14 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 08:53:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/06 23:44:36 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/09 08:58:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
+
 
 static int	ft_is_charset(char const str, char c)
 {
@@ -103,7 +105,7 @@ char	**ft_split(char const *str, char c)
 	word = ft_is_word(str, c);
 	dest = malloc(sizeof(char *) * (word + 1));
 	if (!dest)
-		return (0);
+		return (NULL);
 	dest = ft_malloc_word(str, c, dest, word);
 	if (!dest)
 		return (NULL);
@@ -112,18 +114,26 @@ char	**ft_split(char const *str, char c)
 	return (dest);
 }
 
-int main(int argc, char **argv)
+
+int main()
 {
+	char *oui;
+	char **res;
 	int i;
-	char **tab;
-	
+	int j;
+
 	i = 0;
-	
-	while(argv[i] && argc != 0)
+	j = 0;
+	oui = "o9wuo  erty ";
+	res = ft_split(oui, ' ');
+	while(res[i][j])
 	{
-		tab = ft_split(argv[i++], ' ');
-		printf("%s", *tab);
-		free(tab);
+		while(res[i][j])
+		{
+			printf("%s", res[i]);
+			j++;
+		}
+		i++;
 	}
 	return(0);
 }

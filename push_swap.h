@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/06 23:36:33 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/09 11:49:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,14 @@ typedef struct
 	t_stack *last;
 } t_listdc;
 
-char *ft_parsing(char *argv);
+
+
+int ft_parsing(char **argv);
 void *push_swap(t_listdc *l);
+void *ft_error(); //char **argv
+void ft_free_split(char **argv);
+
+/*Fct liste chainee*/
 
 void 		ft_dlstfree(t_listdc *l);
 void 		ft_dlstinit(t_listdc *l);

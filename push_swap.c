@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/09 00:07:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/09 11:58:43 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*Algo de tri*/
+/*Distribution des algos*/
 
 void *push_swap(t_listdc *l)
 {
@@ -31,24 +31,23 @@ void *push_swap(t_listdc *l)
 	return(0);
 }
 
-/*Message d'erreur*/
+/*Main*/
 
 int main(int argc, char **argv)
 {
 	int i;
-	char *tab;
 	t_listdc l;
 	
 	i = 0;
 	ft_dlstinit(&l);
-	while(argv[i] && argc != 0)
+	// argv = ft_split(argv[1], ' ');
+	if(ft_parsing(argv) == 0 && argc != 0)
 	{
-		tab = ft_parsing(argv[i++]);
-		if(!tab)
-			return(0);
-		ft_dlstfill(&l, ft_atoi(tab));
-		free(tab);
+		while(argv[i++])
+			ft_dlstfill(&l, ft_atoi(argv[i]));
 	}
+	else
+		ft_error();
 	push_swap(&l);
 	ft_dlstfree(&l);
 	return(0);

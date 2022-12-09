@@ -6,15 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/08 23:44:41 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/09 09:45:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*Fcts utils*/
-
-/*Initisliser la dliste*/
+/*Initialiser la dliste*/
 
 void ft_dlstinit(t_listdc *l)
 {
