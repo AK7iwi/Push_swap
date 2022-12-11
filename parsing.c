@@ -6,38 +6,21 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:44:01 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/10 00:30:50 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/11 00:49:33 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*Free argv split*/
-
-void ft_free_split(int argc,char **argv)
-{
-	int i;
-
-	i = 1;
-	while(i < argc)
-	{
-		free(argv[i]);
-		i++;
-	}
-	free(argv);
-}
 /* Erreur */
 
 void *ft_error() //char **argv
 {
 	write(1, "Error\n", 6);
-	// ft_free_split(argv);
 	return(NULL);
 }
 
 /* Parsing */
-
-/*Gere ./push_swap seul*/
 
 int ft_parsing(char **argv)
 {
@@ -45,6 +28,8 @@ int ft_parsing(char **argv)
 	size_t j;
 
 	i = 1;
+	if(!argv[1])
+			return(1);
 	while(argv[i])
 	{
 		j = 0;

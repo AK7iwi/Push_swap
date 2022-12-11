@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/10 00:38:49 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/11 00:30:05 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void *push_swap(t_listdc *l)
 	return(0);
 }
 
-/*Main*/ /*ft_free ?*/
+/*Main*/
 
 int main(int argc, char **argv)
 {
@@ -40,7 +40,6 @@ int main(int argc, char **argv)
 	
 	// i = 0;
 	ft_dlstinit(&l);
-	// argv = ft_split(argv[1], ' ');
 	if(ft_parsing(argv) == 0 && argc != 0)
 	{
 		printf("%s", "oui");
