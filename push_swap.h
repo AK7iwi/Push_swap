@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/11 00:49:21 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/12 06:05:47 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int ft_parsing(char **argv);
 void *push_swap(t_listdc *l);
 void *ft_error(); //char **argv
 void ft_free_split(int argc,char **argv);
+int ft_checkdouble(char **argv);
 
 /*Fct liste chainee*/
 
