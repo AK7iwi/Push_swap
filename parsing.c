@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:44:01 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/12 06:13:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/13 01:33:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int ft_parsing(char **argv)
 {
 	size_t i;
 	size_t j;
-	long long k;
 
 	i = 1;
 	if(!argv[1])
@@ -38,8 +37,7 @@ int ft_parsing(char **argv)
 			j++;
 		while (argv[i][j])
 		{
-			k = ft_atoi(argv[i]);
-			if(ft_isdigit(argv[i][j]) == 0 || k > 2147483647 || k < -2147483648 )
+			if(ft_isdigit(argv[i][j]) == 0)
 				return(1);
 			j++;
 		}
@@ -58,7 +56,6 @@ int ft_checkdouble(char **argv)
 	size_t j;
 
 	i = 0;
-	
 	while(argv[i])
 	{
 		j = i + 1;

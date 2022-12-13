@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 23:26:04 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/05/19 16:03:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/13 01:43:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
-	i = -1;
-	while (s[++i])
-		ft_putchar_fd(s[i], fd);
+	i = 0;
+	while (s[i])
+		ft_putchar_fd(s[i++], fd);
 }

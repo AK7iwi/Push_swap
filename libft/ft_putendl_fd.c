@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 23:33:47 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/05/19 16:41:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/13 01:43:39 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
-	i = -1;
-	while (s[++i])
-		ft_putchar_fd(s[i], fd);
+	i = 0;
+	while (s[i])
+		ft_putchar_fd(s[i++], fd);
 	write(fd, "\n", 1);
 }

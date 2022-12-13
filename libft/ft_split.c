@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 08:53:56 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/09 00:29:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/05/19 16:47:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ char	**ft_split(char const *str, char c)
 	word = ft_is_word(str, c);
 	dest = malloc(sizeof(char *) * (word + 1));
 	if (!dest)
-		return (NULL);
+		return (0);
 	dest = ft_malloc_word(str, c, dest, word);
 	if (!dest)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/12 06:05:47 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/13 03:03:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 
 /*Structure pour avoir qu'un pointeur*/
 
-typedef struct
+typedef struct s_listdc
 {
     t_stack *first;
 	t_stack *last;

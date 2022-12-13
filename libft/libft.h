@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 09:41:57 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/07/21 03:35:18 by mfeldman         ###   ########.fr       */
+/*   Updated: 2022/12/13 03:04:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdio.h>
+
+/*liste chainee*/
 
 typedef struct s_list
 {
