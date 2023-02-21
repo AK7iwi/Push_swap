@@ -4,7 +4,7 @@ CFLAGS			= -Wall -Wextra -Werror -I -g.
 NAME			= push_swap
 OBJS			= $(SRCS:.c=.o) 
 LDLIBS 			= ./libft/libft.a
-SRCS			=  push_swap.c parsing.c push_swap_utils.c push_swap_utils2.c\
+SRCS			=  push_swap.c parsing.c instructions.c utils.c utils2.c algo.c\
 
 $(NAME):		$(OBJS)
 				make -C ./libft 

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/02/20 23:43:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/02/21 22:53:11 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,27 +35,36 @@ typedef struct s_listdc
 
 /*Main*/
 
-void *push_swap(t_listdc *l);
+void push_swap(t_listdc *l);
 
 /*Instructions*/
 
 void sa(t_listdc *a);
 void sb(t_listdc *b);
-void ft_pa(t_listdc *l1, t_listdc *l2);
-void ft_pb(t_listdc *l1, t_listdc *l2);
+void pa(t_listdc *a, t_listdc *b);
+void pb(t_listdc *a, t_listdc *b);
 
 /* Parsing */
+
 int ft_parsing(char **argv);
 int ft_checkdouble(char **argv);
-void *ft_error(); 
+void ft_error(); 
 
 
 /*Fct liste chainee*/
 
 void 		ft_dlstinit(t_listdc *l);
 void 		ft_dlstadd_front(t_listdc *l, int val);
+void 		ft_dlstadd_back(t_listdc *l, int val);
 void 		ft_dlstpop_front(t_listdc *l);
 int			ft_dlstsize(t_listdc *l);
 void 		ft_dlstfree(t_listdc *l);
+
+/*Algo et tri*/
+
+int is_sorted(t_listdc *l);
+void sort2val(t_listdc *a);
+void sort(t_listdc *a);
+
 
 #endif

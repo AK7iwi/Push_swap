@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 00:20:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/02/21 01:38:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:40:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void sa(t_listdc *a)
         tmp = a->first->value;
         a->first->value = a->first->next->value;
         a->first->next->value = tmp;
-        ft_putstr_fd("sa\n", 1);
     }
+    write(1,"sa\n", 3);
 }
 
 void sb(t_listdc *b)
@@ -34,7 +34,7 @@ void sb(t_listdc *b)
         tmp  = b->first->value;
         b->first->value = b->first->next->value;
         b->first->next->value = tmp;
-        ft_putstr_fd("sb\n", 1);
+        write(1,"sb\n", 3);
     }
 }
 
@@ -51,8 +51,8 @@ void pa(t_listdc *a, t_listdc *b)
 {
     if(b->first)
     {
-        ft_dlstadd_front(l1, l2->first->value);
-        ft_dlstpop_front(l2);
+        ft_dlstadd_front(a, b->first->value);
+        ft_dlstpop_front(b);
         ft_putstr_fd("pa\n", 1);
     }
 }
@@ -61,8 +61,8 @@ void pb(t_listdc *a, t_listdc *b)
 {
     if(a->first)
     {
-        ft_dlstadd_front(l2, l1->first->value);
-        ft_dlstpop_front(l1);
+        ft_dlstadd_front(b, a->first->value);
+        ft_dlstpop_front(a);
         ft_putstr_fd("pb\n", 1);
     }
     

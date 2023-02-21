@@ -1,50 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/02/21 22:51:32 by mfeldman         ###   ########.fr       */
+/*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
+/*   Updated: 2023/02/21 19:45:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-/*Distribution des algos*/
+/*Initialiser la dliste*/
 
-void push_swap(t_listdc *a)
+void ft_dlstinit(t_listdc *l)
 {
-	int i;
-	i = ft_dlstsize(a);
-
-	if(i == 2)
-		sort2val(a);
-	else
-		sort(a);
+   l->first = NULL;
+   l->last = NULL;
 }
 
-/*Main*/
-
-int main(int argc, char **argv)
+int is_sorted(t_listdc *l)
 {
-	int i; 
-	t_listdc a;
-	i = 1;
-	ft_dlstinit(&a);
-
-	if(ft_parsing(argv) == 0 && argc != 0)
+	t_stack *pelem;
+	while (l->first && l->first->next)
 	{
-		while(argv[i])
-		{
-			ft_dlstadd_back(&a, ft_atoi(argv[i]));
-			i++;
-		}
-		push_swap(&a);
+		pelem = l->first;
+		l->first = l->first->next;
+        if (pelem->value > l->first->value)
+            return(1);
 	}
-	else
-		ft_error();
-	return(0);
+    l->last = NULL;
+    return(0);
 }

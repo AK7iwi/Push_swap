@@ -1,24 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils2.c                                 :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/02/20 22:20:40 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:47:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*Initialiser la dliste*/
-
-void ft_dlstinit(t_listdc *l)
-{
-   l->first = NULL;
-   l->last = NULL;
-}
 
 /*Ajouter un element a la stack*/
 
@@ -36,6 +29,22 @@ void ft_dlstadd_front(t_listdc *l, int val)
 	else 
 		l->last = new;
 	l->first = new;    
+}
+
+void ft_dlstadd_back(t_listdc *l, int val)
+{
+    t_stack *new;
+    new = malloc(sizeof(t_stack));
+    if (!new)
+        exit(EXIT_FAILURE);
+    new->value = val;
+    new->prev = l->last;
+    new->next = NULL;
+    if (l->last)
+        l->last->next = new;
+    else
+        l->first = new;
+    l->last = new;
 }
 
 
@@ -77,15 +86,14 @@ int	ft_dlstsize(t_listdc *l)
 
 void ft_dlstfree(t_listdc *l)
 {
-	t_stack *tmp;
 	t_stack *pelem;
-	pelem = l->first;
-	while(pelem)
+	while (l->first)
 	{
-		tmp = pelem;
-		pelem = pelem->next;
-		free(tmp);
+		pelem = l->first;
+		l->first = l->first->next;
+		free(pelem);
 	}
-	l->first = NULL;
 	l->last = NULL;
+	l->first = NULL;
 }
+

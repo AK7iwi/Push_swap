@@ -1,50 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/02/21 22:51:32 by mfeldman         ###   ########.fr       */
+/*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
+/*   Updated: 2023/02/21 22:58:35 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-/*Distribution des algos*/
-
-void push_swap(t_listdc *a)
+void sort2val(t_listdc *a)
 {
-	int i;
-	i = ft_dlstsize(a);
-
-	if(i == 2)
-		sort2val(a);
-	else
-		sort(a);
+    if(is_sorted(a) == 1)
+			sa(a);
 }
 
-/*Main*/
 
-int main(int argc, char **argv)
-{
-	int i; 
-	t_listdc a;
-	i = 1;
-	ft_dlstinit(&a);
+void sort(t_listdc *a)
+{   
+    
+    t_listdc b;
+    int pivot;
 
-	if(ft_parsing(argv) == 0 && argc != 0)
-	{
-		while(argv[i])
-		{
-			ft_dlstadd_back(&a, ft_atoi(argv[i]));
-			i++;
-		}
-		push_swap(&a);
-	}
-	else
-		ft_error();
-	return(0);
+    ft_dlstinit(&b);
+    pivot = a->first->value;
+    if(pivot > a->first->next->value)
+        pb(a,&b);
 }
