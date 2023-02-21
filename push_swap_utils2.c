@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2022/12/09 09:45:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/02/20 22:20:40 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,40 @@ void ft_dlstinit(t_listdc *l)
 
 /*Ajouter un element a la stack*/
 
-void *ft_dlstfill(t_listdc *l, int val)
+void ft_dlstadd_front(t_listdc *l, int val)
 {
 	t_stack *new;
 	new =  malloc(sizeof(t_stack));
 	if(!new)
-		return(NULL);
+		exit(EXIT_FAILURE);
 	new->value = val;
-	new->prev = l->last;
-	new->next = NULL;
-	if(l->last) 
-   		l->last->next = new;
+	new->prev = NULL;
+	new->next = l->first;
+	if(l->first) 
+   		l->first->prev = new;
 	else 
-		l->first = new;
-	l->last = new;
-	return(0);      
+		l->last = new;
+	l->first = new;    
 }
+
+
+void ft_dlstpop_front(t_listdc *l)
+{
+    if (l->first)
+    {
+        t_stack *tmp;
+		tmp = l->first;
+
+        l->first = tmp->next;
+        if (l->first)
+            l->first->prev = NULL;
+        else
+            l->last = NULL;
+        free(tmp);
+    }
+}
+
+
 /*Taille liste doublement chainee */ // -1 pour enlever l"exec
 
 int	ft_dlstsize(t_listdc *l)
