@@ -64,7 +64,7 @@ void 		ft_dlstfree(t_listdc *l);
 
 int is_sorted(t_listdc *l);
 void sort2val(t_listdc *a);
-void sort(t_listdc *a);
+void sort(t_listdc *a, t_listdc *b);
 
 
 #endif

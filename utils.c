@@ -28,7 +28,7 @@ void ft_dlstadd_front(t_listdc *l, int val)
    		l->first->prev = new;
 	else 
 		l->last = new;
-	l->first = new;    
+	l->first = new;  
 }
 
 void ft_dlstadd_back(t_listdc *l, int val)
@@ -84,7 +84,7 @@ int	ft_dlstsize(t_listdc *l)
 
 /*Free la liste doublement chainee*/
 
-void ft_dlstfree(t_listdc *l)
+void	ft_dlstfree(t_listdc *l)
 {
 	t_stack *pelem;
 	while (l->first)
@@ -96,4 +96,5 @@ void ft_dlstfree(t_listdc *l)
 	l->last = NULL;
 	l->first = NULL;
 }
+
 

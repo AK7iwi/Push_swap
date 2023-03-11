@@ -17,8 +17,8 @@
 
 void ft_dlstinit(t_listdc *l)
 {
-   l->first = NULL;
-   l->last = NULL;
+    l->first = NULL;
+    l->last = NULL;
 }
 
 int is_sorted(t_listdc *l)

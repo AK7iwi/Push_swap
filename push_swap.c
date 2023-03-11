@@ -18,12 +18,15 @@
 void push_swap(t_listdc *a)
 {
 	int i;
-	i = ft_dlstsize(a);
+	t_listdc b;
 
+	i = ft_dlstsize(a);
+	ft_dlstinit(&b);
 	if(i == 2)
 		sort2val(a);
 	else
-		sort(a);
+		sort(a,&b);
+	ft_dlstfree(&b);
 }
 
 /*Main*/
@@ -34,7 +37,6 @@ int main(int argc, char **argv)
 	t_listdc a;
 	i = 1;
 	ft_dlstinit(&a);
-
 	if(ft_parsing(argv) == 0 && argc != 0)
 	{
 		while(argv[i])

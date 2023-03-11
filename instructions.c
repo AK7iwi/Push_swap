@@ -54,6 +54,7 @@ void pa(t_listdc *a, t_listdc *b)
         ft_dlstadd_front(a, b->first->value);
         ft_dlstpop_front(b);
         ft_putstr_fd("pa\n", 1);
+        
     }
 }
 

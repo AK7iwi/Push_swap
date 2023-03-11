@@ -19,14 +19,23 @@ void sort2val(t_listdc *a)
 }
 
 
-void sort(t_listdc *a)
+void sort(t_listdc *a, t_listdc *b)
 {   
     
-    t_listdc b;
     int pivot;
-
-    ft_dlstinit(&b);
+    t_stack *tmp;
+    if(!a->first)
+        return;
+    tmp = a->first->next;
     pivot = a->first->value;
-    if(pivot > a->first->next->value)
-        pb(a,&b);
+    
+    while(tmp)
+    {
+        if(pivot < tmp->value)
+            pb(a,b);
+        else 
+            tmp = tmp->next;
+    }
+    sort(a,b);
 }
+
