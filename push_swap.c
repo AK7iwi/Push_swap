@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/02/21 22:51:32 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:16:59 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@
 
 void push_swap(t_listdc *a)
 {
-	int i;
 	t_listdc b;
-
-	i = ft_dlstsize(a);
+	int i;
 	ft_dlstinit(&b);
+	i = ft_dlstsize(a);
 	if(i == 2)
 		sort2val(a);
 	else
@@ -37,7 +36,7 @@ int main(int argc, char **argv)
 	t_listdc a;
 	i = 1;
 	ft_dlstinit(&a);
-	if(ft_parsing(argv) == 0 && argc != 0)
+	if(ft_parsing(argv) == 0 && argc != 0 && argv)
 	{
 		while(argv[i])
 		{
@@ -48,5 +47,6 @@ int main(int argc, char **argv)
 	}
 	else
 		ft_error();
+	ft_dlstfree(&a);
 	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/02/21 18:47:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:20:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,30 @@ void ft_dlstadd_front(t_listdc *l, int val)
    		l->first->prev = new;
 	else 
 		l->last = new;
-	l->first = new;  
+	l->first = new;
 }
+
+// int  ft_dlstadd_back(t_listdc *l, int val)
+// {
+// 	return(i) ##lstsize
+// }
 
 void ft_dlstadd_back(t_listdc *l, int val)
 {
     t_stack *new;
     new = malloc(sizeof(t_stack));
     if (!new)
-        exit(EXIT_FAILURE);
-    new->value = val;
+		exit(EXIT_FAILURE);
+	new->value = val;
     new->prev = l->last;
     new->next = NULL;
     if (l->last)
-        l->last->next = new;
+    	l->last->next = new;
     else
-        l->first = new;
+    	l->first = new;
     l->last = new;
+	
 }
-
 
 void ft_dlstpop_front(t_listdc *l)
 {
@@ -96,5 +101,3 @@ void	ft_dlstfree(t_listdc *l)
 	l->last = NULL;
 	l->first = NULL;
 }
-
-

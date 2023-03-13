@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:44:01 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/02/21 22:53:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:38:34 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void ft_error() //char **argv
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 }
 
 /* Parsing */
