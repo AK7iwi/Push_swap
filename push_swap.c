@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/13 17:16:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:50:43 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void push_swap(t_listdc *a)
 		sort2val(a);
 	else
 		sort(a,&b);
+	printf("%d", ft_dlstsize(a));
+	printf("%d", ft_dlstsize(&b));
 	ft_dlstfree(&b);
 }
 

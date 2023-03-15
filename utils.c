@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/13 17:20:17 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:48:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void ft_dlstadd_back(t_listdc *l, int val)
     else
     	l->first = new;
     l->last = new;
-	
 }
 
 void ft_dlstpop_front(t_listdc *l)
