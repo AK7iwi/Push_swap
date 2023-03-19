@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/15 19:50:43 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:32:58 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,19 @@ void push_swap(t_listdc *a)
 	int i;
 	ft_dlstinit(&b);
 	i = ft_dlstsize(a);
+	if(is_sorted(a) == 0)
+		return;
 	if(i == 2)
-		sort2val(a);
-	else
+		sa(a);
+	if(i == 3)
+		sort3val(a);
+	if(i > 3 && i <=5)
+		sort(a,&b);
+	if(i > 5 && i < 100)
+		sort(a,&b);
+	if(i >= 100 && i <500)
+		sort(a,&b);
+	if(i >= 500)
 		sort(a,&b);
 	printf("%d", ft_dlstsize(a));
 	printf("%d", ft_dlstsize(&b));
@@ -38,13 +48,12 @@ int main(int argc, char **argv)
 	t_listdc a;
 	i = 1;
 	ft_dlstinit(&a);
-	if(ft_parsing(argv) == 0 && argc != 0 && argv)
+	if(argc <=1)
+		return(0);
+	if(ft_parsing(argv) == 0 && argc > 1 && argv)
 	{
 		while(argv[i])
-		{
-			ft_dlstadd_back(&a, ft_atoi(argv[i]));
-			i++;
-		}
+			ft_dlstadd_back(&a, ft_atoi(argv[i++]));
 		push_swap(&a);
 	}
 	else

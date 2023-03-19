@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:44:01 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/11 18:38:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:07:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 /* Erreur */
 
-void ft_error() //char **argv
+void ft_error()
 {
 	write(2, "Error\n", 6);
 }
 
 /* Parsing */
 
+//Rajouter int max
 int ft_parsing(char **argv)
 {
 	size_t i;

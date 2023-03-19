@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 00:20:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/13 17:23:28 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:12:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void pa(t_listdc *a, t_listdc *b)
     {
         ft_dlstadd_front(a, b->first->value);
         ft_dlstpop_front(b);
-		rb(b);
     }
 	write(1,"pa\n", 3);
 }
@@ -94,7 +93,6 @@ void pb(t_listdc *a, t_listdc *b)
     {
         ft_dlstadd_front(b, a->first->value);
         ft_dlstpop_front(a);
-		ra(a);
     }
 	write(1,"pb\n", 3);
 }

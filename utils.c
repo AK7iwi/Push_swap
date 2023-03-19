@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/15 19:48:31 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:30:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void ft_dlstadd_front(t_listdc *l, int val)
 	t_stack *new;
 	new =  malloc(sizeof(t_stack));
 	if(!new)
-		exit(EXIT_FAILURE);
+		return ;
 	new->value = val;
 	new->prev = NULL;
 	new->next = l->first;
@@ -29,6 +29,7 @@ void ft_dlstadd_front(t_listdc *l, int val)
 	else 
 		l->last = new;
 	l->first = new;
+	
 }
 
 // int  ft_dlstadd_back(t_listdc *l, int val)
@@ -41,7 +42,7 @@ void ft_dlstadd_back(t_listdc *l, int val)
     t_stack *new;
     new = malloc(sizeof(t_stack));
     if (!new)
-		exit(EXIT_FAILURE);
+		return;
 	new->value = val;
     new->prev = l->last;
     new->next = NULL;
@@ -50,6 +51,7 @@ void ft_dlstadd_back(t_listdc *l, int val)
     else
     	l->first = new;
     l->last = new;
+	
 }
 
 void ft_dlstpop_front(t_listdc *l)
@@ -69,7 +71,7 @@ void ft_dlstpop_front(t_listdc *l)
 }
 
 
-/*Taille liste doublement chainee */ // -1 pour enlever l"exec
+/*Taille liste doublement chainee */ // 
 
 int	ft_dlstsize(t_listdc *l)
 {
@@ -100,3 +102,4 @@ void	ft_dlstfree(t_listdc *l)
 	l->last = NULL;
 	l->first = NULL;
 }
+

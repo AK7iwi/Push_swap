@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/13 16:21:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:47:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include "./libft/libft.h"
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -63,8 +64,7 @@ void 		ft_dlstfree(t_listdc *l);
 /*Algo et tri*/
 
 int is_sorted(t_listdc *l);
-void sort2val(t_listdc *a);
+void sort3val(t_listdc *a);
 void sort(t_listdc *a,t_listdc *b);
-
 
 #endif
