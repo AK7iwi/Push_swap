@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/21 17:51:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/21 22:45:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int 		ft_dlstmin(t_listdc *l);
 
 int is_sorted(t_listdc *l);
 void sort3val(t_listdc *a);
+void sort4val(t_listdc *a, t_listdc *b);
 void sort5val(t_listdc *a, t_listdc *b);
 
 #endif

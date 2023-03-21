@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/21 18:03:22 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/21 22:49:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,42 @@ void sort3val(t_listdc *a)
 		rra(a);
 }
 
+void sort4val(t_listdc *a, t_listdc *b)
+{
+	int top;
+	int mid1;
+	int mid2;
+	int bottom;
+	int min;
+	t_stack *tmp;
+	
+	tmp = a->first;
+	top = tmp->value;
+	mid1 = tmp->next->value;
+	mid2 = tmp->next->next->value;
+	bottom = tmp->next->next->next->value;
+	min = ft_dlstmin(a);
+	if(top == min)
+		pb(a,b);
+	else if(mid1 == min)
+	{
+		sa(a);
+		pb(a,b);
+	}	
+	else if(mid2 == min)
+	{
+		ra(a);
+		ra(a);
+	}	
+	else if(bottom == min)
+	{
+		rra(a);
+		pb(a,b);
+	}
+	sort3val(a);
+	pa(a,b);
+}
+
 void sort5val(t_listdc *a, t_listdc *b)
 {
     int min;
@@ -47,8 +83,8 @@ void sort5val(t_listdc *a, t_listdc *b)
 
     if (a->first->value > a->first->next->value)
         sa(a);
-    pa(a, b);
-    pa(a, b);
+    pb(a, b);
+    pb(a, b);
     sort3val(a);
 
     min = ft_dlstmin(a);
@@ -57,14 +93,14 @@ void sort5val(t_listdc *a, t_listdc *b)
     {
         if (b->first->value == max)
         {
-            pb(a, b);
+            pa(a, b);
             ra(a);
         }
         else if (b->first->value == min)
-            pb(a,b);
+            pa(a,b);
         else
         {
-			pb(a, b);
+			pa(a, b);
             rra(a);
         }
     }
