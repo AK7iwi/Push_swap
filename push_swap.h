@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/19 18:47:15 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:51:01 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ void push_swap(t_listdc *l);
 
 void sa(t_listdc *a);
 void sb(t_listdc *b);
+void ss(t_listdc *a, t_listdc *b);
+void ra(t_listdc *a);
+void rb(t_listdc *a);
+void rr(t_listdc *a, t_listdc *b);
+void rra(t_listdc *a);
+void rrb(t_listdc *b);
+void rrr(t_listdc *a, t_listdc *b);
 void pa(t_listdc *a, t_listdc *b);
 void pb(t_listdc *a, t_listdc *b);
 
@@ -57,14 +64,15 @@ void ft_error();
 void 		ft_dlstinit(t_listdc *l);
 void 		ft_dlstadd_front(t_listdc *l, int val);
 void 		ft_dlstadd_back(t_listdc *l, int val);
-void 		ft_dlstpop_front(t_listdc *l);
 int			ft_dlstsize(t_listdc *l);
 void 		ft_dlstfree(t_listdc *l);
+int 		ft_dlstmax(t_listdc *l);
+int 		ft_dlstmin(t_listdc *l);
 
 /*Algo et tri*/
 
 int is_sorted(t_listdc *l);
 void sort3val(t_listdc *a);
-void sort(t_listdc *a,t_listdc *b);
+void sort5val(t_listdc *a, t_listdc *b);
 
 #endif

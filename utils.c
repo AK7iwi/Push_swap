@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/19 19:30:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:21:14 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,7 @@ void ft_dlstadd_back(t_listdc *l, int val)
     else
     	l->first = new;
     l->last = new;
-	
 }
-
-void ft_dlstpop_front(t_listdc *l)
-{
-    if (l->first)
-    {
-        t_stack *tmp;
-		tmp = l->first;
-
-        l->first = tmp->next;
-        if (l->first)
-            l->first->prev = NULL;
-        else
-            l->last = NULL;
-        free(tmp);
-    }
-}
-
 
 /*Taille liste doublement chainee */ // 
 
@@ -102,4 +84,7 @@ void	ft_dlstfree(t_listdc *l)
 	l->last = NULL;
 	l->first = NULL;
 }
+
+
+
 

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/19 19:32:58 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:42:37 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void push_swap(t_listdc *a)
 	if(i == 3)
 		sort3val(a);
 	if(i > 3 && i <=5)
-		sort(a,&b);
+		sort3val(a);
 	if(i > 5 && i < 100)
-		sort(a,&b);
+		sort5val(a,&b);
 	if(i >= 100 && i <500)
-		sort(a,&b);
+		sort3val(a);
 	if(i >= 500)
-		sort(a,&b);
+		sort3val(a);
 	printf("%d", ft_dlstsize(a));
 	printf("%d", ft_dlstsize(&b));
 	ft_dlstfree(&b);
