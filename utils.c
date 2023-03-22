@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/21 16:21:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:51:48 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,15 @@ void	ft_dlstfree(t_listdc *l)
 	t_stack *pelem;
 	while (l->first)
 	{
+		free(l->first);
 		pelem = l->first;
-		l->first = l->first->next;
-		free(pelem);
+		l->first = pelem->next;
 	}
 	l->last = NULL;
 	l->first = NULL;
 }
+
+
 
 
 

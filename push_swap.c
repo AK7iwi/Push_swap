@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/21 22:45:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/22 04:23:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 	ft_dlstinit(&a);
 	if(argc <=1)
 		return(0);
-	if(ft_parsing(argv) == 0 && argc > 1 && argv)
+	if(ft_parsing(argv) == 0 && argc > 1)
 	{
 		while(argv[i])
 			ft_dlstadd_back(&a, ft_atoi(argv[i++]));
