@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 15:50:02 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:33:08 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,22 +89,6 @@ int		ft_dlstsize(t_stack *lst)
 	}
 	return (size);
 }
-
-// void	ft_dlstfree(t_stack *lst)
-// {
-// 	t_stack	*node;
-
-// 	// if (!lst)
-// 	// 	return ;
-// 	node = lst;
-// 	while (lst)
-// 	{
-// 		free(lst);
-// 		node = node->next;
-// 		lst = node;
-// 	}
-// 	lst->next = NULL;
-// }
 
 void	ft_dlstfree(t_stack **lst)
 {

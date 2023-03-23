@@ -6,14 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 03:29:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:35:05 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-/*Initialiser la dliste*/
 
 int	is_sorted(t_stack *lst)
 {

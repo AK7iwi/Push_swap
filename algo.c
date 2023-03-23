@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 16:32:39 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:27:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void sort3val(t_stack *a)
 	else if (top > mid && mid > bottom && bottom < top)
 	{
 		sa(a);
-		rra(&a);
+		rra(a);
 	}
 	else if (top > mid && mid < bottom && bottom < top)
 		ra(a);
@@ -35,14 +35,10 @@ void sort3val(t_stack *a)
 		ra(a);
 	}
 	else if (top < mid && mid > bottom && bottom < top)
-		rra(&a);
+		rra(a);
 }
 
-//sort3val avoir un autre prototype//
-void sort3val(t_stack **a)
-{
-	
-}
+
 
 void sort4val(t_stack *a, t_stack *b)
 {
@@ -63,11 +59,10 @@ void sort4val(t_stack *a, t_stack *b)
 		ra(a);
 	}	
 	else if(bottom == min)
-		rra(&a);
+		rra(a);
 	pb(a,b);
 	sort3val(a);
 	pa(a,b);
 }
 
-//an algo to sort 5 values//
 

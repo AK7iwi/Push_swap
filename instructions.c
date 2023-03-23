@@ -6,14 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 00:20:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 16:42:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:26:57 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*fcts instructions*/
-
 
 void    sa(t_stack *a)
 {
@@ -26,8 +25,6 @@ void    sa(t_stack *a)
     a->next->value = temp;
     write(1, "sa\n", 3);
 }
-
-
 
 void	sb(t_stack *b)
 {
@@ -49,7 +46,7 @@ void ss(t_stack *a, t_stack *b)
     write(1,"ss\n", 3);
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack *a)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -66,7 +63,7 @@ void	ra(t_stack **a)
     write(1,"ra\n", 3);
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack *b)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -83,14 +80,14 @@ void	rb(t_stack **b)
     write(1,"rb\n", 3);
 }
 
-void rr(t_stack **a, t_stack **b)
+void rr(t_stack *a, t_stack *b)
 {
     ra(a);
     rb(b);
     write(1,"rr\n", 3);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack *a, t_stack *b)
 {
 	t_stack	*top_b;
 
@@ -106,9 +103,7 @@ void	pa(t_stack **a, t_stack **b)
     write(1,"pa\n", 3);
 }
 
-
-
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack *a, t_stack *b)
 {
 	t_stack	*top_a;
 
@@ -124,20 +119,40 @@ void	pb(t_stack **a, t_stack **b)
     write(1,"pb\n", 3);
 }
 
-void rrb(t_stack **b)
+void rra(t_stack *a)
 {
-	t_stack *bottom_b;
+	t_stack	*last;
+	t_stack	*first;
 
-	bottom_b = b->prev;
-	bottom_b->next = b->next;
-	b->next->prev = bottom_b;
-	b->prev = bottom_b->prev;
-	b->next = bottom_b;
-	bottom_b->prev->next = b;
-	bottom_b->prev = b;
-	write(1, "rrb\n", 4);
+	if (!a || !a->next)
+		return ;
+	last = a->prev;
+	first = a->next;
+	a->next = first->next;
+	a->prev = first;
+	first->next = a;
+	first->prev = last;
+	last->next = first;
+	write(1,"rra\n", 4);
 }
 
+
+void rrb(t_stack *b)
+{
+	t_stack	*last;
+	t_stack	*first;
+
+	if (!b || !b->next)
+		return ;
+	last = b->prev;
+	first = b->next;
+	b->next = first->next;
+	b->prev = first;
+	first->next = b;
+	first->prev = last;
+	last->next = first;
+	write(1,"rrb\n", 4);
+}
 
 void rrr(t_stack *a, t_stack *b)
 {
