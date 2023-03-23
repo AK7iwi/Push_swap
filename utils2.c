@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 19:35:05 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 23:48:00 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	ft_dlstmin(t_stack *lst)
 
 	if (!lst)
 		return (0);
-	min = lst->next->value;
-	node = lst->next;
+	min = lst->value;
+	node = lst;
 	while (node != NULL)
 	{
 		if (node->value < min)
@@ -51,9 +51,9 @@ int	ft_dlstmax(t_stack *lst)
 
 	if (!lst)
 		return (0);
-	max = lst->next->value;
-	node = lst->next;
-	while (node != NULL)
+	max = lst->value;
+	node = lst;
+	while (node)
 	{
 		if (node->value > max)
 			max = node->value;

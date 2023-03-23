@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 20:22:17 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 23:01:29 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ typedef struct s_stack
 
 /*Main*/
 
-void push_swap(t_stack *a,t_stack *b);
+void push_swap(t_stack **a,t_stack **b);
 
 /*Instructions*/
 
 void sa(t_stack *a);
 void sb(t_stack *b);
 void ss(t_stack *a, t_stack *b);
-void ra(t_stack *a);
-void rb(t_stack *a);
-void rr(t_stack *a, t_stack *b);
-void rra(t_stack *a);
-void rrb(t_stack *b);
-void rrr(t_stack *a, t_stack *b);
-void pa(t_stack *a, t_stack *b);
-void pb(t_stack *a, t_stack *b);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_a);
+void rr(t_stack **a, t_stack **b);
+void rra(t_stack **a);
+void rrb(t_stack **b);
+void rrr(t_stack **a, t_stack **b);
+void pa(t_stack **a, t_stack **b);
+void pb(t_stack **a, t_stack **b);
 
 /* Parsing */
 
@@ -61,7 +61,7 @@ int 		ft_dlstmin(t_stack *lst);
 /*Algo et tri*/
 
 int is_sorted(t_stack *lst);
-void sort3val(t_stack *a);
-void sort4val(t_stack *a, t_stack *b);
+void sort3val(t_stack **a);
+void sort4val(t_stack **a, t_stack **b);
 
 #endif
