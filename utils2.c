@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/21 18:32:56 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 03:29:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,52 +15,53 @@
 
 /*Initialiser la dliste*/
 
-void ft_dlstinit(t_listdc *l)
+int	is_sorted(t_stack *lst)
 {
-    l->first = NULL;
-    l->last = NULL;
+	if (!lst)
+		return (0);
+	while (lst->next)
+    {
+        if (lst->value > lst->next->value)
+            return (1);
+        lst = lst->next;
+    }
+	return (0);
 }
 
-int is_sorted(t_listdc *l)
+
+int	ft_dlstmin(t_stack *lst)
 {
-	t_stack *pelem;
-	while (l->first && l->first->next)
+	int		min;
+	t_stack	*node;
+
+	if (!lst)
+		return (0);
+	min = lst->next->value;
+	node = lst->next;
+	while (node != NULL)
 	{
-		pelem = l->first;
-		l->first = l->first->next;
-        if (pelem->value > l->first->value)
-            return(1);
+		if (node->value < min)
+			min = node->value;
+		node = node->next;
 	}
-    l->last = NULL;
-    return(0);
+	return (min);
 }
 
-int ft_dlstmin(t_listdc *l)
+int	ft_dlstmax(t_stack *lst)
 {
-    int min;
-    min = l->first->value;
-    t_stack *tmp;
-    tmp = l->first;
-    while (tmp)
-    {
-        if (tmp->value < min)
-            min = tmp->value;
-        tmp = tmp->next;
-    }
-    return (min);
+	int		max;
+	t_stack	*node;
+
+	if (!lst)
+		return (0);
+	max = lst->next->value;
+	node = lst->next;
+	while (node != NULL)
+	{
+		if (node->value > max)
+			max = node->value;
+		node = node->next;
+	}
+	return (max);
 }
 
-int ft_dlstmax(t_listdc *l)
-{
-    int max;
-    max = l->first->value;
-    t_stack *tmp;
-    tmp = l->first;
-    while (tmp)
-    {
-        if (tmp->value > max)
-            max = tmp->value;
-        tmp = tmp->next;
-    }
-    return (max);
-}

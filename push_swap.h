@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/21 22:45:13 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:43:13 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,55 +25,43 @@ typedef struct s_stack
 	
 }	t_stack;
 
-/*Structure pour avoir qu'un pointeur*/
-
-typedef struct s_listdc
-{
-    t_stack *first;
-	t_stack *last;
-} t_listdc;
-
-
 /*Main*/
 
-void push_swap(t_listdc *l);
+void push_swap(t_stack *a,t_stack *b);
 
 /*Instructions*/
 
-void sa(t_listdc *a);
-void sb(t_listdc *b);
-void ss(t_listdc *a, t_listdc *b);
-void ra(t_listdc *a);
-void rb(t_listdc *a);
-void rr(t_listdc *a, t_listdc *b);
-void rra(t_listdc *a);
-void rrb(t_listdc *b);
-void rrr(t_listdc *a, t_listdc *b);
-void pa(t_listdc *a, t_listdc *b);
-void pb(t_listdc *a, t_listdc *b);
+void sa(t_stack *a);
+void sb(t_stack *b);
+void ss(t_stack *a, t_stack *b);
+void ra(t_stack **a);
+void rb(t_stack **a);
+void rr(t_stack **a, t_stack **b);
+void rra(t_stack **a);
+void rrb(t_stack **b);
+void rrr(t_stack *a, t_stack *b); 
+void pa(t_stack *a, t_stack **b);
+void pb(t_stack *a, t_stack **b);
 
 /* Parsing */
 
 int ft_parsing(char **argv);
 int ft_checkdouble(char **argv);
-void ft_error(); 
-
+void ft_error();
 
 /*Fct liste chainee*/
 
-void 		ft_dlstinit(t_listdc *l);
-void 		ft_dlstadd_front(t_listdc *l, int val);
-void 		ft_dlstadd_back(t_listdc *l, int val);
-int			ft_dlstsize(t_listdc *l);
-void 		ft_dlstfree(t_listdc *l);
-int 		ft_dlstmax(t_listdc *l);
-int 		ft_dlstmin(t_listdc *l);
+void 		ft_dlstadd_front(t_stack **lst, int val);
+void 		ft_dlstadd_back(t_stack **l, int val);
+int			ft_dlstsize(t_stack **lst);
+void 		ft_dlstfree(t_stack **lst);
+int 		ft_dlstmax(t_stack **);
+int 		ft_dlstmin(t_stack **lst);
 
 /*Algo et tri*/
 
-int is_sorted(t_listdc *l);
-void sort3val(t_listdc *a);
-void sort4val(t_listdc *a, t_listdc *b);
-void sort5val(t_listdc *a, t_listdc *b);
+int is_sorted(t_stack **lst);
+void sort3val(t_stack **a);
+void sort4val(t_stack **a, t_stack **b);
 
 #endif

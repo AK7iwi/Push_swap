@@ -6,87 +6,120 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/22 14:51:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 15:50:02 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-/*Ajouter un element a la stack*/
-
-void ft_dlstadd_front(t_listdc *l, int val)
-{
-	t_stack *new;
-	new =  malloc(sizeof(t_stack));
-	if(!new)
-		return ;
-	new->value = val;
-	new->prev = NULL;
-	new->next = l->first;
-	if(l->first) 
-   		l->first->prev = new;
-	else 
-		l->last = new;
-	l->first = new;
-	
-}
-
-// int  ft_dlstadd_back(t_listdc *l, int val)
+// void ft_dlstadd_front(t_stack **l, int val)
 // {
-// 	return(i) ##lstsize
+// 	t_stack *new_node;
+
+// 	new_node = malloc(sizeof(t_stack));
+// 	if (!new_node)
+// 		return ;
+// 	new_node->value = val;
+// 	if (!*l)
+// 	{
+// 		new_node->next = new_node;
+// 		new_node->prev = new_node;
+// 	}
+// 	else
+// 	{
+// 		new_node->next = *l;
+// 		new_node->prev = (*l)->prev;
+// 		(*l)->prev->next = new_node;
+// 		(*l)->prev = new_node;
+// 	}
+// 	*l = new_node;
 // }
 
-void ft_dlstadd_back(t_listdc *l, int val)
+void ft_dlstadd_front(t_stack **l, int val)
 {
-    t_stack *new;
-    new = malloc(sizeof(t_stack));
-    if (!new)
-		return;
-	new->value = val;
-    new->prev = l->last;
-    new->next = NULL;
-    if (l->last)
-    	l->last->next = new;
-    else
-    	l->first = new;
-    l->last = new;
+	t_stack *new_node;
+
+	new_node = malloc(sizeof(t_stack));
+	if (!new_node)
+		return ;
+	new_node->value = val;
+	new_node->prev = NULL;
+	new_node->next = (*l);
+	if ((*l) != NULL)
+		(*l)->prev = new_node;
+	(*l) = new_node;
 }
 
-/*Taille liste doublement chainee */ // 
 
-int	ft_dlstsize(t_listdc *l)
+void ft_dlstadd_back(t_stack **l, int val)
 {
-	int	i;
-	t_stack *pelem;
+	t_stack *new_node;
+	t_stack	*last;
+	
+	new_node = malloc(sizeof(t_stack));
+	if (!new_node)
+		return ; 
+	new_node->value = val;
+	new_node->next = NULL;
 
-	i = 0;
-	pelem = l->first;
-	while (pelem)
+	if (*l == NULL)
+		*l = new_node;
+	else
 	{
-		i++;
-		pelem = pelem->next;
+		last = *l;
+		while (last->next)
+			last = last->next;
+		last->next = new_node;
 	}
-	return (i);
+
 }
 
-/*Free la liste doublement chainee*/
-
-void	ft_dlstfree(t_listdc *l)
+int		ft_dlstsize(t_stack *lst)
 {
-	t_stack *pelem;
-	while (l->first)
+	int		size;
+
+	if (!lst)
+		return (0);
+	size = 0;
+	while (lst)
 	{
-		free(l->first);
-		pelem = l->first;
-		l->first = pelem->next;
+		size++;
+		lst = lst->next;
 	}
-	l->last = NULL;
-	l->first = NULL;
+	return (size);
 }
 
+// void	ft_dlstfree(t_stack *lst)
+// {
+// 	t_stack	*node;
 
+// 	// if (!lst)
+// 	// 	return ;
+// 	node = lst;
+// 	while (lst)
+// 	{
+// 		free(lst);
+// 		node = node->next;
+// 		lst = node;
+// 	}
+// 	lst->next = NULL;
+// }
 
+void	ft_dlstfree(t_stack **lst)
+{
+	t_stack	*current;
+	t_stack	*temp;
 
-
-
+	if (lst && *lst)
+	{
+		current = *lst;
+		while (current)
+		{
+			temp = current;
+			current = current->next;
+			free(temp);
+		}
+		*lst = NULL;
+	}
+}

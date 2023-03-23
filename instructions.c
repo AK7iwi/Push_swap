@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 00:20:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/21 03:18:19 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:42:42 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,127 +14,134 @@
 
 /*fcts instructions*/
 
-void sa(t_listdc *a)
+
+void    sa(t_stack *a)
 {
-    if (a->first && a->first->next)
-    {
-        int tmp;
-        tmp = a->first->value;
-        a->first->value = a->first->next->value;
-        a->first->next->value = tmp;
-    }
-    write(1,"sa\n", 3);
+    int     temp;
+
+    if (!a || !a->next)
+        return ;
+    temp = a->value;
+    a->value = a->next->value;
+    a->next->value = temp;
+    write(1, "sa\n", 3);
 }
 
-void sb(t_listdc *b)
+
+
+void	sb(t_stack *b)
 {
-    if (b->first && b->first->next)
-    {
-        int tmp;
-        tmp  = b->first->value;
-        b->first->value = b->first->next->value;
-        b->first->next->value = tmp;
-    }
-	write(1,"sb\n", 3);
+	int     temp;
+
+    if (!b || !b->next)
+        return ;
+    temp = b->value;
+    b->value = b->next->value;
+    b->next->value = temp;
+    write(1, "sb\n", 3);
 }
 
-void ss(t_listdc *a, t_listdc *b)
+
+void ss(t_stack *a, t_stack *b)
 {
     sa(a);
     sa(b);
     write(1,"ss\n", 3);
 }
 
-void ra(t_listdc *a)
+void	ra(t_stack **a)
 {
-    if (a->first != NULL && a->first != a->last)
-    {
-        t_stack *first_elem;
-        
-        first_elem = a->first;
-        a->first = a->first->next;
-        a->last->next = first_elem;
-        first_elem->prev = a->last;
-        a->last = first_elem;
-        a->last->next = NULL;
-        
-    }
-	write(1,"ra\n", 3);
+	t_stack	*first;
+	t_stack	*last;
+
+	if (!a || !a->next)
+		return ;
+	first = a->next;
+	last = a->prev;
+	a->next = first->next;
+	a->prev = first;
+	first->next = a;
+	first->prev = last;
+	last->next = first;
+    write(1,"ra\n", 3);
 }
 
-void rb(t_listdc *b)
+void	rb(t_stack **b)
 {
-    if (b->first != NULL && b->first != b->last)
-    {
-        t_stack *first_elem;
-        first_elem = b->first;
-        b->first = b->first->next;
-        b->last->next = first_elem;
-        first_elem->prev = b->last;
-        b->last = first_elem;
-        b->last->next = NULL;
-    }
-	write(1,"rb\n", 3);
+	t_stack	*first;
+	t_stack	*last;
+
+	if (!b || !b->next)
+		return ;
+	first = b->next;
+	last = b->prev;
+	b->next = first->next;
+	b->prev = first;
+	first->next = b;
+	first->prev = last;
+	last->next = first;
+    write(1,"rb\n", 3);
 }
 
-void pa(t_listdc *a, t_listdc *b)
-{
-    if(b->first)
-        ft_dlstadd_front(a, b->first->value);
-    write(1,"pa\n", 3);
-}
-
-void pb(t_listdc *a, t_listdc *b)
-{
-    if(a->first)
-        ft_dlstadd_front(b, a->first->value);
-    write(1,"pb\n", 3);
-}
-
-void rr(t_listdc *a, t_listdc *b)
+void rr(t_stack **a, t_stack **b)
 {
     ra(a);
     rb(b);
     write(1,"rr\n", 3);
 }
 
-void rra(t_listdc *a)
+void	pa(t_stack **a, t_stack **b)
 {
-    if (a->first != NULL && a->first != a->last)
-    {
-        t_stack *last_elem;
-        last_elem = a->last;
-        a->last = a->last->prev;
-        a->last->next = NULL;
-        last_elem->prev = NULL;
-        last_elem->next = a->first;
-        a->first->prev = last_elem;
-        a->first = last_elem;
-    }
-	write(1,"rra\n", 3);
+	t_stack	*top_b;
+
+	if (!b || !b->next)
+		return ;
+	top_b = b->next;
+	top_b->prev = a;
+	top_b->next = a->next;
+	a->next->prev = top_b;
+	a->next = top_b;
+	b->next = top_b->next;
+	b->next->prev = b;
+    write(1,"pa\n", 3);
 }
 
 
-void rrb(t_listdc *b)
+
+void	pb(t_stack **a, t_stack **b)
 {
-    if (b->first != NULL && b->first != b->last)
-    {
-        t_stack *last_elem;
-        last_elem = b->last;
-        b->last = b->last->prev;
-        b->last->next = NULL;
-        last_elem->prev = NULL;
-        last_elem->next = b->first;
-        b->first->prev = last_elem;
-        b->first = last_elem;
-    }
-	 write(1,"rrb\n", 3);
+	t_stack	*top_a;
+
+	if (!a || !a->next)
+		return ;
+	top_a = a->next;
+	top_a->prev = b;
+	top_a->next = b->next;
+	b->next->prev = top_a;
+	b->next = top_a;
+	a->next = top_a->next;
+	a->next->prev = a;
+    write(1,"pb\n", 3);
+}
+
+void rrb(t_stack **b)
+{
+	t_stack *bottom_b;
+
+	bottom_b = b->prev;
+	bottom_b->next = b->next;
+	b->next->prev = bottom_b;
+	b->prev = bottom_b->prev;
+	b->next = bottom_b;
+	bottom_b->prev->next = b;
+	bottom_b->prev = b;
+	write(1, "rrb\n", 4);
 }
 
 
-void rrr(t_listdc *a, t_listdc *b)
+void rrr(t_stack *a, t_stack *b)
 {
     rra(a);
     rrb(b);
-    write(1,"rrr\n", 3);
+    write(1,"rrr\n", 4);
 }
