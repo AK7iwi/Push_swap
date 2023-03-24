@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 23:39:18 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/24 03:16:27 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,43 @@ void sort4val(t_stack **a, t_stack **b)
     pa(a, b);
 }
 
+void	sort5val(t_stack **a, t_stack **b)
+{
+	int i;
+	int min;
+	t_stack *tmp;
 
+	i = 0;
+	min = ft_dlstmin(*a);
+	tmp = *a;
+	while(tmp)
+	{
+		i++;
+		if((tmp)->value == min)
+			break;
+		tmp = (tmp)->next;
+	}
+	presort5val(a, b, i);
+	sort4val(a,b);
+	pa(a, b);
+}
+
+void presort5val(t_stack **a, t_stack **b, int i)
+{
+	if(i == 2)
+		ra(a);
+	else if(i == 3)
+	{
+		ra(a);
+		ra(a);
+	}
+	else if(i == 4)
+	{
+		rra(a);
+		rra(a);
+	}
+	else if(i == 5)
+		rra(a);
+	pb(a, b);
+}
 

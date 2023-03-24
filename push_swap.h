@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 23:01:29 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/24 03:04:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void ft_error();
 
 /*Fct liste chainee*/
 
-void 		ft_dlstadd_front(t_stack **lst, int val);
 void 		ft_dlstadd_back(t_stack **l, int val);
 int			ft_dlstsize(t_stack *lst);
 void 		ft_dlstfree(t_stack **lst);
+void		ft_freeall(t_stack **a,t_stack **b);
 int 		ft_dlstmax(t_stack *);
 int 		ft_dlstmin(t_stack *lst);
 
@@ -63,5 +63,7 @@ int 		ft_dlstmin(t_stack *lst);
 int is_sorted(t_stack *lst);
 void sort3val(t_stack **a);
 void sort4val(t_stack **a, t_stack **b);
+void presort5val(t_stack **a, t_stack **b, int i);
+void	sort5val(t_stack **a, t_stack **b);
 
 #endif

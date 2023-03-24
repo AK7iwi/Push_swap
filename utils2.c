@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 23:48:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/24 00:42:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	is_sorted(t_stack *lst)
 	while (lst->next)
     {
         if (lst->value > lst->next->value)
-            return (1);
+            return (0);
         lst = lst->next;
     }
-	return (0);
+	return (1);
 }
 
 

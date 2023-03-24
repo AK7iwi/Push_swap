@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 23:27:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/24 02:41:21 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,26 @@ void push_swap(t_stack **a,t_stack **b)
 {
 	int i;
 	i = ft_dlstsize(*a);
-	printf("%d", ft_dlstsize(*a));
-	printf("%d", ft_dlstsize(*b));
-	if(i == 2)
+	// printf("%d", ft_dlstsize(*a));
+	// printf("%d", ft_dlstsize(*b));
+	if(is_sorted(*a) == 1)
+			return;
+	else if(i == 2)
 		sa(*a);
 	else if(i == 3)
 		sort3val(a);
-	if(i == 4)
+	else if(i == 4)
 		sort4val(a,b);
-	// if(i == 5)
-	// 	sort4val(a,b);
+	else if(i == 5)
+		sort5val(a,b);
 	// if(i > 5 && i < 100)
 	// 	sort4val(a,b);
 	// if(i >= 100 && i <500)
 	// 	sort3val(a);
 	// if(i >= 500)
 	// 	sort3val(a);
-	printf("%d", ft_dlstsize(*a));
-	printf("%d", ft_dlstsize(*b));
-	
+	// printf("%d", ft_dlstsize(*a));
+	// printf("%d", ft_dlstsize(*b));
 }
 
 /* Main */
@@ -57,13 +58,10 @@ int main(int argc, char **argv)
 	{
 		while(argv[i])
 			ft_dlstadd_back(&a, ft_atoi(argv[i++]));
-		if(is_sorted(a) == 0)
-			return (0);
 		push_swap(&a,&b);
 	}
 	else
 		ft_error();
-	ft_dlstfree(&a);
-	ft_dlstfree(&b);
+	ft_freeall(&a,&b);
 	return(0);
 }

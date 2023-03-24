@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/23 19:33:08 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/24 00:48:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,12 @@
 // 	if (!new_node)
 // 		return ;
 // 	new_node->value = val;
-// 	if (!*l)
-// 	{
-// 		new_node->next = new_node;
-// 		new_node->prev = new_node;
-// 	}
-// 	else
-// 	{
-// 		new_node->next = *l;
-// 		new_node->prev = (*l)->prev;
-// 		(*l)->prev->next = new_node;
+// 	new_node->prev = NULL;
+// 	new_node->next = (*l);
+// 	if ((*l) != NULL)
 // 		(*l)->prev = new_node;
-// 	}
-// 	*l = new_node;
+// 	(*l) = new_node;
 // }
-
-void ft_dlstadd_front(t_stack **l, int val)
-{
-	t_stack *new_node;
-
-	new_node = malloc(sizeof(t_stack));
-	if (!new_node)
-		return ;
-	new_node->value = val;
-	new_node->prev = NULL;
-	new_node->next = (*l);
-	if ((*l) != NULL)
-		(*l)->prev = new_node;
-	(*l) = new_node;
-}
 
 
 void ft_dlstadd_back(t_stack **l, int val)
@@ -106,4 +83,10 @@ void	ft_dlstfree(t_stack **lst)
 		}
 		*lst = NULL;
 	}
+}
+
+void	ft_freeall(t_stack **a,t_stack **b)
+{
+	ft_dlstfree(a);
+	ft_dlstfree(b);
 }
