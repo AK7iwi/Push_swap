@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/24 04:54:06 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:30:15 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,25 @@ void sort4val(t_stack **a, t_stack **b)
     pa(a, b);
 }
 
+void presort5val(t_stack **a, t_stack **b, int i)
+{
+	if(i == 2)
+		ra(a);
+	else if(i == 3)
+	{
+		ra(a);
+		ra(a);
+	}
+	else if(i == 4)
+	{
+		rra(a);
+		rra(a);
+	}
+	else if(i == 5)
+		rra(a);
+	pb(a, b);
+}
+
 void	sort5val(t_stack **a, t_stack **b)
 {
 	int i;
@@ -84,23 +103,4 @@ void	sort5val(t_stack **a, t_stack **b)
 	presort5val(a, b, i);
 	sort4val(a,b);
 	pa(a, b);
-}
-
-void presort5val(t_stack **a, t_stack **b, int i)
-{
-	if(i == 2)
-		ra(a);
-	else if(i == 3)
-	{
-		ra(a);
-		ra(a);
-	}
-	else if(i == 4)
-	{
-		rra(a);
-		rra(a);
-	}
-	else if(i == 5)
-		rra(a);
-	pb(a, b);
 }
