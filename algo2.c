@@ -6,102 +6,74 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/24 06:22:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:43:24 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
+void presort6to100val(t_stack **a, t_stack *tmp, t_stack *tmp2, int i)
+{
+    int j;
+    j = 0;
+    
+    while(j <= i)
+    {
+        tmp = *a;
+        *a = (*a)->next;
+        tmp = tmp->next;
+        j++;
+    }
+    j++;
+    while(j <= ft_dlstsize(*a))
+    {
+        tmp2 = *a;
+        *a = (*a)->next;
+        tmp2 = tmp2->next;
+        j++;
+    }
+}
+
+int find_low_pos(t_stack * tmp)
+{
+    int min;
+    int pos;
+
+    min = ft_dlstmin(tmp);
+    pos = 0;
+    while(tmp)
+    {
+        pos++;
+        if(tmp->value == min)
+            break;
+        tmp = tmp->next;
+    }
+    return(pos);
+}
 void sort6to100val(t_stack **a, t_stack **b)
 {
     int i;
-    int j;
-    int min1;
-    int min2;
+
     t_stack *tmp;
     t_stack *tmp2;
 
     i = ft_dlstsize(*a) / 2;
-    tmp = ft_dlstcpy1(&a, i);
-    tmp2 = ft_dlstcpy2(&a, i);
-    min1 = ft_dlstmin(tmp);
-    min2 = ft_dlstmin(tmp2);
-    while(j < i)
+    presort6to100val(a, tmp, tmp2,i);
+    if(find_low_pos(tmp) < ft_dlstsize(*a) - find_low_pos(tmp2))
     {
-        j++;
-        if(tmp->value == min1)
-			break;
-       tmp = tmp->next;
+        while(find_low_pos(tmp) != 0)
+            ra(a);
     }
-    j = 0;
-    while(j < ft_dlstsize(tmp2) - i)
+    else if (find_low_pos(tmp) == ft_dlstsize(*a) - find_low_pos(tmp2))
     {
-        if(tmp2->value == min2)
-            break;
-        j--;
-        tmp2 = tmp2->next;
+        while(find_low_pos(tmp) != 0)
+            ra(a);
     }
+    else
+    {
+        while(find_low_pos(tmp2) != ft_dlstsize(*a))
+            rra(a);
+    }
+    pb(a, b);
 }
-
-t_stack ft_dlstcpy1(t_stack **a,  int i)
-{
-    int j;
-    t_stack *tmp;
-    j = 0;
-    tmp = malloc(sizeof(t_stack));
-    if (!tmp)
-		return(NULL); 
-    while(j < i)
-    {
-        tmp = *a;
-        *a = (*a)->next;
-        tmp = tmp->next;
-        j++;
-    }
-    return (tmp);
-}
-  
-t_stack ft_dlstcpy2(t_stack **a,  int i)
-{
-    int j;
-    t_stack *tmp;
-    j= 0;
-    tmp = malloc(sizeof(t_stack));
-    if (!tmp)
-		return(NULL); 
-    while(j < i)
-    {
-        *a = (*a)->next; 
-        j++;
-    }
-    while(j < ft_dlstsize(*a))
-    {
-        tmp = *a;
-        *a = (*a)->next;
-        tmp = tmp->next;
-        j++;
-    }
-    return(tmp);
-}
-
-//une seul fonction pour copie 
-
-//void sort6to100val(t_stack **a, t_stack **b)
-// t_stack *tmp;
-// t_stack *tmp2;
-// j = 0;
-// while(j < i)
-//     {
-//         tmp = *a;
-//         *a = (*a)->next;
-//         tmp = tmp->next;
-//         j++;
-//     }
-//     while(j < ft_dlstsize(*a))
-//     {
-//         tmp2 = *a;
-//         *a = (*a)->next;
-//         tmp2 = tmp2->next;
-//         j++;
-//     }
-//     return(tmp);
