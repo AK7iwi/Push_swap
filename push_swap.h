@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/24 14:44:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/24 21:03:40 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,15 @@ int 		find_low_pos(t_stack * tmp);
 
 /*Algo et tri*/
 
-int is_sorted(t_stack *lst);
-void sort3val(t_stack **a);
-void sort4val(t_stack **a, t_stack **b);
-void presort5val(t_stack **a, t_stack **b, int i);
+int 	is_sorted(t_stack *lst);
+void 	sort3val(t_stack **a);
+void 	sort4val(t_stack **a, t_stack **b);
+void 	presort5val(t_stack **a, t_stack **b, int i);
 void	sort5val(t_stack **a, t_stack **b);
-void presort6to100val(t_stack **a, t_stack *tmp, t_stack *tmp2, int i);
-void sort6to100val(t_stack **a, t_stack **b);
+void 	presort6to100val(t_stack **a, t_stack *tmp, t_stack *tmp2, int i);
+void 	sort6to100val(t_stack **a, t_stack **b);
+int 	find_low_pos(t_stack *tmp);
+void 	pushlowpos(t_stack **a, t_stack **b, t_stack *tmp, t_stack *tmp2);
+int 	chunksize(t_stack **a);
 
 #endif
