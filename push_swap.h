@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/24 03:04:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/24 05:53:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void 		ft_dlstfree(t_stack **lst);
 void		ft_freeall(t_stack **a,t_stack **b);
 int 		ft_dlstmax(t_stack *);
 int 		ft_dlstmin(t_stack *lst);
+t_stack 	ft_dlstcpy1(t_stack **a, int i);
+t_stack 	ft_dlstcpy2(t_stack **a,  int i);
 
 /*Algo et tri*/
 
@@ -65,5 +67,6 @@ void sort3val(t_stack **a);
 void sort4val(t_stack **a, t_stack **b);
 void presort5val(t_stack **a, t_stack **b, int i);
 void	sort5val(t_stack **a, t_stack **b);
+void sort6to100val(t_stack **a, t_stack **b);
 
 #endif
