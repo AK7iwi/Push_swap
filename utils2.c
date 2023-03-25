@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/24 00:42:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 10:06:58 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,14 @@ int	ft_dlstmax(t_stack *lst)
 	return (max);
 }
 
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}

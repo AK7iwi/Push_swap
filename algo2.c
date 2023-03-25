@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 01:10:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 10:15:52 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void presort6to100val(t_stack **a, t_stack *tmp, t_stack *tmp2, int i)
         tmp = tmp->next;
         k++;
     }
-    while(k >j && k <= size - i - rest)
+    while(k >j && k <= size - i - rest)  //size - rest
         k++;
     while(k <= size)
     {
@@ -85,7 +85,7 @@ void pushlowpos(t_stack **a, t_stack **b, t_stack *tmp, t_stack *tmp2)
         while(find_low_pos(tmp) != 1)
             ra(a);
     }
-    else if (find_low_pos(tmp) == sizeend - find_low_pos(tmp2))
+    else if (find_low_pos(tmp) == sizeend - find_low_pos(tmp2)) // (find_low_pos(tmp) == sizeend - 1)
     {
         while(find_low_pos(tmp) != 1)
             ra(a);
@@ -110,10 +110,127 @@ void sort6to100val(t_stack **a, t_stack **b)
 	tmp2 = NULL;
     presort6to100val(a, tmp, tmp2,i);
 	pushlowpos(a, b, tmp, tmp2);
-    // while(ft_dlstsize(*a) != 0)
-    //    sort6to100val(a,b);
-    //  while(ft_dlstsize(*b) != 0)
-    //    sort6to100val(b,a);
+    while(ft_dlstsize(*a) != 0)
+       sort6to100val(a,b);
+     while(ft_dlstsize(*b) != 0)
+       sort6to100val(b,a);
 }
 //  utiliser la taille des stack tmp et pas creer des stacks. Trouver le min diff;
 //allocation memoire pour les tmp
+
+4 / 4
+
+The issue with the sort6to100val function is that it calls itself recursively without checking the base case, leading to an infinite recursion loop and causing a stack overflow. To fix this, we can add a base case to stop the recursion when the size of either stack becomes 0.
+
+Here is the corrected code:
+
+scss
+Copy code
+int chunksize(t_stack **a)
+{
+    int i;
+    int nbchunk;
+
+    i = ft_dlstsize(*a);
+    if (i > 5 && i <= 10)
+        nbchunk = 2;
+    else if (i > 10 && i < 50)
+        nbchunk = 4;
+    else if (i >= 50 && i <= 100)
+        nbchunk = 5;
+    else if (i > 100)
+        nbchunk = 11;
+    else
+        nbchunk = 1;
+    return (nbchunk);
+}
+
+void presort6to100val(t_stack **a, t_stack *tmp, t_stack *tmp2, int i)
+{
+    int j;
+    int k;
+    int rest;
+    int size;
+
+    size = ft_dlstsize(*a);
+    j = size / i;
+    rest = size % i;
+    k = 0;
+    while (k < j)
+    {
+        tmp = *a;
+        *a = (*a)->next;
+        tmp = tmp->next;
+        k++;
+    }
+    while (k >= j && k < size - i - rest)
+        k++;
+    while (k < size)
+    {
+        tmp2 = *a;
+        *a = (*a)->next;
+        tmp2 = tmp2->next;
+        k++;
+    }
+}
+
+int find_low_pos(t_stack *tmp)
+{
+    int min;
+    int pos;
+
+    min = ft_dlstmin(tmp);
+    pos = 0;
+    while (tmp)
+    {
+        pos++;
+        if (tmp->value == min)
+            break;
+        tmp = tmp->next;
+    }
+    return (pos);
+}
+
+void pushlowpos(t_stack **a, t_stack **b, t_stack *tmp, t_stack *tmp2)
+{
+    int sizeend;
+
+    sizeend = ft_dlstsize(tmp2);
+    if (find_low_pos(tmp) < sizeend - find_low_pos(tmp2))
+    {
+        while (find_low_pos(tmp) != 1)
+            ra(a);
+    }
+    else if (find_low_pos(tmp) == sizeend - find_low_pos(tmp2))
+    {
+        while (find_low_pos(tmp) != 1)
+            ra(a);
+    }
+    else
+    {
+        while (find_low_pos(tmp2) != sizeend)
+            rra(a);
+        rra(a);
+    }
+    pb(a, b);
+}
+
+void sort6to100val(t_stack **a, t_stack **b)
+{
+    int i;
+    t_stack *tmp;
+    t_stack *tmp2;
+
+    i = chunksize(a);
+    while (ft_dlstsize(*a) > 0 && ft_dlstsize(*b) < ft_dlstsize(*a))
+    {
+        tmp = NULL;
+        tmp2 = NULL;
+        presort6to100val(a, tmp, tmp2, i);
+        pushlowpos(a, b, tmp, tmp2);
+    }
+    if (ft_dlstsize(*a) > 0)
+        sort6to100val(a, b);
+    if (ft_dlstsize(*b) > 0)
+        sort6to100val(b, a);
+}
