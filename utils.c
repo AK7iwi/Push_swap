@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/24 06:06:06 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:21:21 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	ft_dlstfree(t_stack **lst)
 		*lst = NULL;
 	}
 }
+
 
 void	ft_freeall(t_stack **a,t_stack **b)
 {

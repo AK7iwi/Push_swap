@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 00:20:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 12:37:35 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:24:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,34 +46,35 @@ void ss(t_stack *a, t_stack *b)
     write(1,"ss\n", 3);
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **stack_a)
 {
 	t_stack	*first;
 	t_stack	*last;
 
-	if (*a == NULL || (*a)->next == NULL)
+	first = *stack_a;
+	last = *stack_a;
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
-	first = *a;
-	last = *a;
 	while (last->next != NULL)
 		last = last->next;
+	*stack_a = first->next;
 	first->next = NULL;
 	last->next = first;
-	write(1,"ra\n",3);
+	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **stack_b)
 {
 	t_stack	*first;
 	t_stack	*last;
 
-	if (*b == NULL || (*b)->next == NULL) 
+	first = *stack_b;
+	last = *stack_b;
+	if (*stack_b == NULL || (*stack_b)->next == NULL)
 		return ;
-	first = *b;
-	last = *b;
 	while (last->next != NULL)
 		last = last->next;
-	*b = first->next;
+	*stack_b = first->next;
 	first->next = NULL;
 	last->next = first;
 	write(1, "rb\n", 3);
@@ -125,44 +126,45 @@ void pb(t_stack **stack_a, t_stack **stack_b)
 }
 
 
-void	rra(t_stack **a)
+void	rra(t_stack **stack_a)
 {
+	t_stack	*sec_last;
 	t_stack	*last;
-	t_stack	*second_last;
 
-	if (!(*a) || !(*a)->next)
+	sec_last = NULL;
+	last = *stack_a;
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
-	last = *a;
-	second_last = NULL;
-	while (last->next)
+	while (last->next != NULL)
 	{
-		second_last = last;
+		sec_last = last;
 		last = last->next;
 	}
-	second_last->next = NULL;
-	last->next = *a;
-	*a = last;
+	sec_last->next = NULL;
+	last->next = *stack_a;
+	*stack_a = last;
 	write(1,"rra\n", 4);
 }
 
-void rrb(t_stack **b)
+void	rrb(t_stack **stack_b)
 {
+	t_stack	*sec_last;
 	t_stack	*last;
-	t_stack	*second_last;
 
-	if (!(*b) || !(*b)->next)
+	sec_last = NULL;
+	last = *stack_b;
+	if (*stack_b == NULL || (*stack_b)->next == NULL)
 		return ;
-	last = *b;
-	second_last = NULL;
-	while (last->next)
+	while (last->next != NULL)
 	{
-		second_last = last;
+		sec_last = last;
 		last = last->next;
 	}
-	second_last->next = NULL;
-	last->next = *b;
-	*b = last;
+	sec_last->next = NULL;
+	last->next = *stack_b;
+	*stack_b = last;
 	write(1,"rrb\n", 4);
+	
 }
 	
 

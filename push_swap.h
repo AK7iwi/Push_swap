@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 10:08:30 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 15:05:04 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void pb(t_stack **a, t_stack **b);
 int ft_parsing(char **argv);
 int ft_checkdouble(char **argv);
 void ft_error();
-void	ft_putstr(char *str);
+// void	ft_putstr(char *str);
 
 /*Fct liste chainee*/
 
@@ -59,6 +59,7 @@ void		ft_freeall(t_stack **a,t_stack **b);
 int 		ft_dlstmax(t_stack *);
 int 		ft_dlstmin(t_stack *lst);
 int 		find_low_pos(t_stack * tmp);
+
 
 /*Algo et tri*/
 
