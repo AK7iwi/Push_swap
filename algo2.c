@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 18:25:19 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 19:26:25 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,27 @@ int find_low_pos(t_stack *tmp)
 
 void pushlowpos(t_stack **a, t_stack **b, t_stack *tmp, t_stack *tmp2)
 {
-	int sizeend;
+	int diff;
+	int diff2;
 	
-	sizeend = ft_dlstsize(tmp2);
-    if(find_low_pos(tmp) <= sizeend - find_low_pos(tmp2))
+	diff = find_low_pos(tmp);
+	diff2 = ft_dlstsize(tmp2) - find_low_pos(tmp2);
+	
+    if(find_low_pos(tmp) <= diff2)
     {
-        while(find_low_pos(tmp) != 1)
+        while(diff != 0)
 		{
 			ra(a);
-			// ra pour tmp 
-		}	
+			diff--;
+		}
     }
     else
     {
-        while(find_low_pos(tmp2) != sizeend)
+        while(diff2 != 0)
+		{
             rra(a);
-			// rra pour tmp 
+			diff2--;
+		}
 		rra(a);
     }	
 	pb(a, b);

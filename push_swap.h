@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 18:02:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 19:59:02 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int 		find_low_pos(t_stack * tmp);
 int 	is_sorted(t_stack *lst);
 void 	sort3val(t_stack **a);
 void 	sort4val(t_stack **a, t_stack **b);
-void 	presort5val(t_stack **a, t_stack **b, int i);
 void	sort5val(t_stack **a, t_stack **b);
 void 	presort6to100val(t_stack **a, t_stack **b, int i, char **argv);
 void 	sort6to100val(t_stack **a, t_stack **b,char **argv);

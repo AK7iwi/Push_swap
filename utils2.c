@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 18:26:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 19:25:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,3 @@ int	ft_dlstmax(t_stack *lst)
 	}
 	return (max);
 }
-
-int printinstructions()
-	while()
-		write 
