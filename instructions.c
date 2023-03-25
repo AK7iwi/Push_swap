@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 00:20:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/24 00:30:28 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 12:37:35 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	ra(t_stack **a)
 	last = *a;
 	while (last->next != NULL)
 		last = last->next;
-	*a = first->next;
 	first->next = NULL;
 	last->next = first;
 	write(1,"ra\n",3);
@@ -68,7 +67,7 @@ void	rb(t_stack **b)
 	t_stack	*first;
 	t_stack	*last;
 
-	if (*b == NULL || (*b)->next == NULL)
+	if (*b == NULL || (*b)->next == NULL) 
 		return ;
 	first = *b;
 	last = *b;
@@ -163,7 +162,7 @@ void rrb(t_stack **b)
 	second_last->next = NULL;
 	last->next = *b;
 	*b = last;
-	write(1,"rra\n", 4);
+	write(1,"rrb\n", 4);
 }
 	
 
