@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 10:15:52 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 11:12:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,14 +118,7 @@ void sort6to100val(t_stack **a, t_stack **b)
 //  utiliser la taille des stack tmp et pas creer des stacks. Trouver le min diff;
 //allocation memoire pour les tmp
 
-4 / 4
 
-The issue with the sort6to100val function is that it calls itself recursively without checking the base case, leading to an infinite recursion loop and causing a stack overflow. To fix this, we can add a base case to stop the recursion when the size of either stack becomes 0.
-
-Here is the corrected code:
-
-scss
-Copy code
 int chunksize(t_stack **a)
 {
     int i;
