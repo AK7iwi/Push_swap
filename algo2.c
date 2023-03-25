@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/24 22:20:52 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 01:10:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int chunksize(t_stack **a)
 		nbchunk = 2;
 	else if (i > 10 && i < 50)
 		nbchunk = 4;
-	else if(i => 50 && <= 100)
+	else if(i >= 50 && i <= 100)
 		nbchunk = 5;
 	else if (i > 100)
 		nbchunk = 11;
@@ -32,32 +32,31 @@ int chunksize(t_stack **a)
 void presort6to100val(t_stack **a, t_stack *tmp, t_stack *tmp2, int i)
 {
     int j;
+    int k;
 	int rest;
 	int size;
 	
     size = ft_dlstsize(*a);
     j = size / i;
-	rest = size % i;
-	while()
-	{
-		
-	}
+    rest = size % i;
+    k = 0;
+    while(k <= j)
+    {
+        tmp = *a;
+        *a = (*a)->next;
+        tmp = tmp->next;
+        k++;
+    }
+    while(k >j && k <= size - i - rest)
+        k++;
+    while(k <= size)
+    {
+        tmp2 = *a;
+        *a = (*a)->next;
+        tmp2 = tmp2->next;
+        k++;
+    }
 }
-    // while(j <= i)
-    // {
-    //     tmp = *a;
-    //     *a = (*a)->next;
-    //     tmp = tmp->next;
-    //     j++;
-    // }
-    // j++;
-    // while(j <= ft_dlstsize(*a))
-    // {
-    //     tmp2 = *a;
-    //     *a = (*a)->next;
-    //     tmp2 = tmp2->next;
-    //     j++;
-    // }
 
 int find_low_pos(t_stack *tmp)
 {
@@ -97,21 +96,24 @@ void pushlowpos(t_stack **a, t_stack **b, t_stack *tmp, t_stack *tmp2)
             rra(a);
 		rra(a);
     }	
-	pb(a, b);
+	pb(a, b);   
 }
 
 void sort6to100val(t_stack **a, t_stack **b)
 {
-    t_stack *tmp;
+    t_stack *tmp;           
     t_stack *tmp2;
 	int i;
 
 	i = chunksize(a);
 	tmp = NULL;
 	tmp2 = NULL;
-	while() // nombre de stack 
     presort6to100val(a, tmp, tmp2,i);
 	pushlowpos(a, b, tmp, tmp2);
-	sort6to100val(a,b);
+    // while(ft_dlstsize(*a) != 0)
+    //    sort6to100val(a,b);
+    //  while(ft_dlstsize(*b) != 0)
+    //    sort6to100val(b,a);
 }
 //  utiliser la taille des stack tmp et pas creer des stacks. Trouver le min diff;
+//allocation memoire pour les tmp
