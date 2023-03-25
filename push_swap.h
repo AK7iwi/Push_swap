@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 15:05:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:02:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_stack
 
 /*Main*/
 
-void push_swap(t_stack **a,t_stack **b);
+void push_swap(t_stack **a,t_stack **b, char **argv);
 
 /*Instructions*/
 
@@ -68,8 +68,8 @@ void 	sort3val(t_stack **a);
 void 	sort4val(t_stack **a, t_stack **b);
 void 	presort5val(t_stack **a, t_stack **b, int i);
 void	sort5val(t_stack **a, t_stack **b);
-void 	presort6to100val(t_stack **a, t_stack *tmp, t_stack *tmp2, int i);
-void 	sort6to100val(t_stack **a, t_stack **b);
+void 	presort6to100val(t_stack **a, t_stack **b, int i, char **argv);
+void 	sort6to100val(t_stack **a, t_stack **b,char **argv);
 int 	find_low_pos(t_stack *tmp);
 void 	pushlowpos(t_stack **a, t_stack **b, t_stack *tmp, t_stack *tmp2);
 int 	chunksize(t_stack **a);

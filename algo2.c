@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 15:38:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:25:19 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,7 @@ int chunksize(t_stack **a)
 		nbchunk = 10;
 	return(nbchunk);
 }
-//bug sur les tailles impaire  
-void presort6to100val(t_stack **a, t_stack *tmp, t_stack *tmp2, int i)
-{
-    int j;
-    int k;
-	int rest;
-	int size;
-	
-    size = ft_dlstsize(*a);
-    j = size / i;
-    rest = size % i;
-    k = 0;
-    while(k <= j)
-    {
-        ft_dlstadd_back(&tmp, (*a)->value);
-        (*a) = (*a)->next;
-        k++;
-    }
-    while(k > j && k <= size - i - rest)  
-        k++;
-    while(k <= size)
-    {
-        ft_dlstadd_back(&tmp2, (*a)->value);
-        (*a) = (*a)->next;
-        k++;
-    }
-}
+  
 
 int find_low_pos(t_stack *tmp)
 {
@@ -78,44 +52,53 @@ void pushlowpos(t_stack **a, t_stack **b, t_stack *tmp, t_stack *tmp2)
 	int sizeend;
 	
 	sizeend = ft_dlstsize(tmp2);
-    if (!a || !*a || !b || !tmp || !tmp2)
-        return;
     if(find_low_pos(tmp) <= sizeend - find_low_pos(tmp2))
     {
         while(find_low_pos(tmp) != 1)
-            ra(a);
+		{
+			ra(a);
+			// ra pour tmp 
+		}	
     }
     else
     {
         while(find_low_pos(tmp2) != sizeend)
             rra(a);
+			// rra pour tmp 
 		rra(a);
     }	
-	pb(a, b);   
+	pb(a, b);
 }
 
-void sort6to100val(t_stack **a, t_stack **b)
+void presort6to100val(t_stack **a, t_stack **b, int i, char **argv)
 {
-    t_stack *tmp;           
-    t_stack *tmp2;
-	int i;
-
-	i = chunksize(a);
+	int j;
+    int k;
+	int size;
+	t_stack *tmp;
+	t_stack *tmp2;
+	
 	tmp = NULL;
-    tmp2 = NULL;
-    presort6to100val(a, tmp, tmp2,i);
-	pushlowpos(a, b, tmp, tmp2);
-    if(ft_dlstsize(*a) != 0)
-    {
-        sort6to100val(a,b);
-        ft_freeall(&tmp, &tmp2);
-    }
-    if(ft_dlstsize(*b) != 0)
-    {
-        sort6to100val(b,a);
-        ft_freeall(&tmp, &tmp2);
-    }
-    ft_freeall(&tmp, &tmp2);
+	tmp2 = NULL;
+    size = ft_dlstsize(*a);
+    j = size / i;
+    k = 1;
+	while(argv[k] && k < j)
+		ft_dlstadd_back(&tmp, ft_atoi(argv[k++]));
+	k = size - j;
+	while(argv[k] && k <= size)
+		ft_dlstadd_back(&tmp2, ft_atoi(argv[k++]));
+	pushlowpos(a,b,tmp,tmp2);
 }
-// //  utiliser la taille des stack tmp et pas creer des stacks. Trouver le min diff;
-// //allocation memoire pour les tmp
+
+void sort6to100val(t_stack **a, t_stack **b,char **argv)
+{
+	int i;
+	
+	i = chunksize(a);
+    presort6to100val(a,b,i,argv);
+    if(ft_dlstsize(*a) != 0)
+		sort6to100val(a,b,argv);
+	if(ft_dlstsize(*b) != 0)
+		sort6to100val(b,a,argv);
+}

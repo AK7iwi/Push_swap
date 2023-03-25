@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 15:24:38 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:20:18 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*Distribution des algos*/
 
-void push_swap(t_stack **a,t_stack **b)
+void push_swap(t_stack **a,t_stack **b, char **argv)
 {
 	int i;
 	i = ft_dlstsize(*a);
@@ -32,9 +32,9 @@ void push_swap(t_stack **a,t_stack **b)
 	else if(i == 5)
 		sort5val(a,b);
 	else if(i > 5 && i <= 100)
-		sort6to100val(a,b);
+		sort6to100val(a,b,argv);
 	if(i >= 100 && i <500)
-		sort6to100val(a,b);
+		sort6to100val(a,b,argv);
 	// printf("%d", ft_dlstsize(*a));
 	// printf("%d", ft_dlstsize(*b));
 }
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 	{
 		while(argv[i])
 			ft_dlstadd_back(&a, ft_atoi(argv[i++]));
-		push_swap(&a,&b);
+		push_swap(&a,&b,argv);
 	}
 	else
 		ft_error();

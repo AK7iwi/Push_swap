@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 00:20:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 13:24:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:17:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void    sa(t_stack *a)
     temp = a->value;
     a->value = a->next->value;
     a->next->value = temp;
-    write(1, "sa\n", 3);
+    // ft_putstr();
 }
 
 void	sb(t_stack *b)
