@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/26 08:22:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/26 10:14:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,13 @@ int find_low_pos(t_stack *tmp)
         tmp = tmp->next;
     }
     return(pos);
+}
+
+void	ft_putstr(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i++])
+		write(1, &str[i], 1);
 }

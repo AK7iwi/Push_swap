@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/26 07:57:59 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/26 09:46:36 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ int 	find_low_pos_highstack(t_stack *tmp, int sizetmp);
 int 	find_low_pos_lowstack(t_stack *tmp, int sizetmp);
 void 	pushlowpos(t_stack **a, t_stack **b, int nbchunk);
 int 	chunksize(t_stack **a);
+void 	sortb(t_stack **b);
 
 #endif

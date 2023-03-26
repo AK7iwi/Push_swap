@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/26 08:54:30 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/26 10:04:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,18 @@ void pushlowpos(t_stack **a, t_stack **b, int nbchunk)
 		rra(a);
 	}
 	pb(a, b);
+}
+
+void sortb(t_stack **b)
+{
+	int top;
+	int second;
+	top = (*b)->value;
+	second = (*b)->next->value;
+	if(top < second)
+		sb(*b);
+	else 
+		return;
 }
 
 void sort6to100val(t_stack **a, t_stack **b,char **argv)
