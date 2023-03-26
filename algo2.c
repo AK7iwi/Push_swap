@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 19:26:25 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/26 01:52:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int chunksize(t_stack **a)
 	return(nbchunk);
 }
   
-
 int find_low_pos(t_stack *tmp)
 {
     int min;
