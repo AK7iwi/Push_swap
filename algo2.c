@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/26 10:04:51 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:49:18 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void pushlowpos(t_stack **a, t_stack **b, int nbchunk)
     }
     else
     {
-        while(pos2 > 0)
+        while(pos2 != 0)
 		{
             rra(a);
 			pos2--;
@@ -103,20 +103,20 @@ void sortb(t_stack **b)
 	second = (*b)->next->value;
 	if(top < second)
 		sb(*b);
-	else 
-		return;
 }
 
 void sort6to100val(t_stack **a, t_stack **b,char **argv)
 {
 	int i;
 	i = chunksize(a);
-    if(ft_dlstsize(*a) != 5)
+    if(ft_dlstsize(*a) > 3)
 	{	
 		pushlowpos(a,b,i);
+		if(ft_dlstsize(*b) > 1)
+			sortb(b);
 		sort6to100val(a,b,argv);
 	}
-	sort5val(a,b);
+	sort3val(a);
 	while(ft_dlstsize(*b) != 0)
 		pa(a,b);
 }
