@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/26 09:46:36 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/26 23:16:43 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void 		ft_dlstfree(t_stack **lst);
 void		ft_freeall(t_stack **a,t_stack **b);
 int 		ft_dlstmin(t_stack *lst);
 int 		find_low_pos(t_stack * tmp);
+int 		mediane(t_stack **a);
+
 
 
 /*Algo et tri*/
@@ -66,11 +68,10 @@ int 	is_sorted(t_stack *lst);
 void 	sort3val(t_stack **a);
 void 	sort4val(t_stack **a, t_stack **b);
 void	sort5val(t_stack **a, t_stack **b);
-void 	sort6to100val(t_stack **a, t_stack **b,char **argv); 
-int 	find_low_pos_highstack(t_stack *tmp, int sizetmp);
-int 	find_low_pos_lowstack(t_stack *tmp, int sizetmp);
-void 	pushlowpos(t_stack **a, t_stack **b, int nbchunk);
-int 	chunksize(t_stack **a);
-void 	sortb(t_stack **b);
+void 	pushlowpos(t_stack **a, t_stack **b);
+void 	presort6to100val(t_stack **a, t_stack **b, int i);
+void 	sort(int *arr, t_stack *a);
+int 	*array(t_stack *tmp);
+void 	sort6to100val(t_stack **a, t_stack **b,char **argv);
 
 #endif
