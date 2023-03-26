@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/26 06:04:04 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/26 08:54:30 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,43 @@ int chunksize(t_stack **a)
 	return(nbchunk);
 }
   
-int find_low_pos(t_stack *tmp, int sizetmp)
+int find_low_pos_highstack(t_stack *tmp, int sizechunk)
 {
     int min;
     int pos;
 
     min = ft_dlstmin(tmp);
     pos = 0;
-    while(size_tmp != 0)
+    while(sizechunk > 0)
     {
         pos++;
         if(tmp->value == min)
             break;
         tmp = tmp->next;
-		size_tmp--;
+		sizechunk--;
     }
     return(pos);
+}
+
+int find_low_pos_lowstack(t_stack *tmp, int sizechunk)
+{
+    t_stack *tmp2;
+	int i;
+	i = ft_dlstsize(tmp) - sizechunk;
+	
+    while (i > 0)
+    {
+        tmp = tmp->next;
+		i--;
+    }
+	while(sizechunk > 0)
+	{
+		tmp2 = tmp;
+		tmp = tmp->next;
+		tmp2 = tmp2->next;
+		sizechunk--;
+	}
+    return (ft_dlstsize(tmp) - find_low_pos(tmp2));
 }
 
 void pushlowpos(t_stack **a, t_stack **b, int nbchunk)
@@ -52,11 +73,11 @@ void pushlowpos(t_stack **a, t_stack **b, int nbchunk)
 	int pos1;
 	int pos2;
 	
-	pos1 = find_low_pos(*a, ft_dlstsize(*a) / nbchunk);
-	pos2 = ft_dlstsize(*a) - (ft_dlstsize(*a) / nbchunk) * (nbchunk - 1);
+	pos1 = find_low_pos_highstack(*a, ft_dlstsize(*a) / nbchunk);
+	pos2 = find_low_pos_lowstack(*a, ft_dlstsize(*a) / nbchunk);
     if(pos1 <= pos2)
     {
-        while(pos1 != 1)
+        while(pos1 > 1)
 		{
 			ra(a);
 			pos1--;
@@ -64,7 +85,7 @@ void pushlowpos(t_stack **a, t_stack **b, int nbchunk)
     }
     else
     {
-        while(pos2 != 0)
+        while(pos2 > 0)
 		{
             rra(a);
 			pos2--;
@@ -76,12 +97,14 @@ void pushlowpos(t_stack **a, t_stack **b, int nbchunk)
 
 void sort6to100val(t_stack **a, t_stack **b,char **argv)
 {
-    if(ft_dlstsize(*a) != 3)
+	int i;
+	i = chunksize(a);
+    if(ft_dlstsize(*a) != 5)
 	{	
-		pushlowpos(a,b);
+		pushlowpos(a,b,i);
 		sort6to100val(a,b,argv);
 	}
-	sort3val(a);
+	sort5val(a,b);
 	while(ft_dlstsize(*b) != 0)
 		pa(a,b);
 }

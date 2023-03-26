@@ -6,28 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 14:21:21 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/26 08:21:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-// void ft_dlstadd_front(t_stack **l, int val)
-// {
-// 	t_stack *new_node;
-
-// 	new_node = malloc(sizeof(t_stack));
-// 	if (!new_node)
-// 		return ;
-// 	new_node->value = val;
-// 	new_node->prev = NULL;
-// 	new_node->next = (*l);
-// 	if ((*l) != NULL)
-// 		(*l)->prev = new_node;
-// 	(*l) = new_node;
-// }
-
 
 void ft_dlstadd_back(t_stack **l, int val)
 {
@@ -49,6 +32,7 @@ void ft_dlstadd_back(t_stack **l, int val)
 			last = last->next;
 		last->next = new_node;
 	}
+	
 }
 
 int		ft_dlstsize(t_stack *lst)
@@ -83,7 +67,6 @@ void	ft_dlstfree(t_stack **lst)
 		*lst = NULL;
 	}
 }
-
 
 void	ft_freeall(t_stack **a,t_stack **b)
 {

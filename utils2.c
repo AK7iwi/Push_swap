@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/25 19:25:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/26 08:22:01 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	is_sorted(t_stack *lst)
     }
 	return (1);
 }
-
 
 int	ft_dlstmin(t_stack *lst)
 {
@@ -44,20 +43,19 @@ int	ft_dlstmin(t_stack *lst)
 	return (min);
 }
 
-int	ft_dlstmax(t_stack *lst)
+int find_low_pos(t_stack *tmp)
 {
-	int		max;
-	t_stack	*node;
+    int min;
+    int pos;
 
-	if (!lst)
-		return (0);
-	max = lst->value;
-	node = lst;
-	while (node)
-	{
-		if (node->value > max)
-			max = node->value;
-		node = node->next;
-	}
-	return (max);
+    min = ft_dlstmin(tmp);
+    pos = 0;
+    while(tmp)
+    {
+        pos++;
+        if(tmp->value == min)
+            break;
+        tmp = tmp->next;
+    }
+    return(pos);
 }
