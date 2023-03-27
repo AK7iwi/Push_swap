@@ -6,18 +6,17 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 13:49:41 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 22:19:12 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 void pushlowpos(t_stack **a, t_stack **b)
 {
 	int pos1;
 	int pos2;
-	
+
 	pos1 = find_max_pos(*b);
 	pos2 = ft_dlstsize(*b) - pos1;
     if(pos1 < ft_dlstsize(*b) / 2)
@@ -28,7 +27,7 @@ void pushlowpos(t_stack **a, t_stack **b)
 			pos1--;
 		}
     }
-    else 
+    else
     {
         while(pos2 > 0)
 		{
@@ -39,20 +38,20 @@ void pushlowpos(t_stack **a, t_stack **b)
 	pa(a, b);
 }
 
-void pushtop(t_stack **a, t_stack **b, int i)
+void pushtop(t_stack **a, t_stack **b, int pos)
 {
 	int pos2;
-	
-	pos2 = ft_dlstsize(*a) - i;
-    if(i < ft_dlstsize(*a) / 2)
+
+	pos2 = ft_dlstsize(*a) - pos;
+    if(pos < ft_dlstsize(*a) / 2)
     {
-        while(i > 1)
+        while(pos > 1)
 		{
 			ra(a);
-			i--;
+			pos--;
 		}
     }
-    else 
+    else
     {
         while(pos2 > 0)
 		{
@@ -64,155 +63,84 @@ void pushtop(t_stack **a, t_stack **b, int i)
 	pb(a, b);
 }
 
-void presort6to100val(t_stack **a, t_stack **b, int i)
+void pushtopB(t_stack **b, t_stack **a, int pos)
 {
-	t_stack *tmp;
-	tmp = (*a);
-	int j;
+	int pos2;
 
-	j = 1; 
-	while(tmp)
-	{
-		if(tmp->value < i)
+	pos2 = ft_dlstsize(*b) - pos;
+    if(pos < ft_dlstsize(*b) / 2)
+    {
+        while(pos > 1)
 		{
-			pushtop(a,b,j);
-			if(is_push_safe(b,tmp->value) == 1)
-				rb(b);
+			ra(a);
+			pos--;
 		}
-		tmp = tmp->next;
-		j++;
-	}
-}
-
-int *array(t_stack **a)
-{
-	int *arr;
-	int size;
-	int i;
-	t_stack *tmp;
-
-	tmp = *a;
-	size = ft_dlstsize(*a);
-	i = 0;
-	arr = malloc(sizeof(int) * (size));
-	if(!arr)
-		return(0);
-	while(tmp)
-	{
-		arr[i] = tmp->value;
-		tmp = tmp->next;
-		i++;
-	}
-	return(arr);
-}
-
-int *sort(int *arr, t_stack **a)
-{
-	int		i;
-	int		j;
-	int		tmp;
-	
-	i = 0;
-	while(i < ft_dlstsize(*a) - 1)
-	{
-		j = i + 1;
-		while(j < ft_dlstsize(*a) - 1)
+    }
+    else
+    {
+        while(pos2 > 0)
 		{
-			if(arr[i] > arr[j])
-			{
-				tmp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = tmp;
-			}
-			j++;
+            rrb(b);
+			pos2--;
 		}
-		i++;
+		rrb(b);
 	}
-	return(arr);
+	pa(a, b);
 }
 
-int mediane(t_stack **a)
+
+void presort6to100valB(t_stack **a, t_stack **b, int val)
 {
-	int mid;
-	int *arr;
-	int cpy;
+	int pos1;
+	int pos2;
+
+	pos1 = scantop(b,val);
+	pos2 = scanbottom(b,val);
+
+	if (pos1 > pos2)
+		pushtopB(b,a,pos1);
+	else 
+		pushtopB(b,a,pos2);
+}
+
+void presort6to100val(t_stack **a, t_stack **b, int val)
+{
+	int pos1;
+	int pos2;
+
+	pos1 = scantop(a,val);
+	pos2 = scanbottom(a,val);
+
+	if (pos1 > pos2)
+		pushtop(a,b,pos1);
+	else 
+		pushtop(a,b,pos2);
 	
-	arr = array(a);
-	sort(arr,a);
-	mid = ft_dlstsize(*a) / 2;
-	cpy = arr[mid];
-	free(arr);
-	return(cpy);
-}
-
-
-int	nbchunk(int *arr, int size)
-{
-	int	med;
-	int i;
-
-	i = 0;
-	if (size >= 0 && size <= 100)
-	{
-		while (i <= (size / 5))
-			i++;
-	}
-	else if (size >= 101 && size <= 150)
-	{
-		while (i <= (size / 8))
-			i++;
-	}
-	else if (size >= 151 && size <= 250)
-	{
-		while (i <= (size / 12))
-			i++;
-	}
-	else if (size > 250)
-	{
-		while (i <= (size / 17))
-			i++;
-	}
-	med = arr[i];
-	return (med);
 }
 
 void sort6to100val(t_stack **a, t_stack **b)
 {
 	int i;
+	int j;
+	int k;
 
-	i = mediane(a);
-    while(ft_dlstsize(*a) > 0)
-		presort6to100val(a,b,i);
-	while(*b)
-		pushlowpos(a,b);
-}
-
-int is_push_safe(t_stack **b, int num)
-{
-    t_stack *tmp;
-	int i;
-	tmp = *b;
-	
-	i = 0;
-	while(tmp)
+	j = ft_dlstsize(*a);
+	i = medianeval(a);
+	k = medianeval(b);
+    while(j > 3)
 	{
-		if(tmp->value > num)
-			i++;
-		tmp = tmp->next;
+		presort6to100val(a,b,i);
+		j--;
 	}
-	if(i == ft_dlstsize(tmp))
-		return(1);
-	// i = 0;
-	// while(tmp)
-	// {
-	// 	if(tmp->value < num)
-	// 		i++;
-	// 	tmp = tmp->next;
-	// }
-	// if(i = ft_dlstsize(tmp))
-	// 	return(2);
-    return (0); 
+	sort3val(a);
+	while(*b)
+		presort6to100valB(b,a,k);
 }
 
-// tester de pas push si pas min ou max
-
+// void optipush(t_stack **l, int val)
+// {
+// 	if(is_push_safe(l,val) == 1)
+// 		rra(l);
+// 	if(is_push_safe(l,val) == 1)
+// 		rrb(l);
+// }

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 12:52:26 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 22:16:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void pb(t_stack **a, t_stack **b);
 int ft_parsing(char **argv);
 int ft_checkdouble(char **argv);
 void ft_error();
-// void	ft_putstr(char *str);
+void	ft_putstr(char *str);
 
 /*Fct liste chainee*/
 
@@ -60,12 +60,16 @@ int 		ft_dlstmin(t_stack *lst);
 int			ft_dlstmax(t_stack *lst);
 int 		find_min_pos(t_stack * tmp);
 int 		find_max_pos(t_stack *tmp);
-int 		mediane(t_stack **a);
+// int 		mediane(t_stack **a);
 int 		find_pos(t_stack *tmp, int i);
-void 		pushtop(t_stack **a, t_stack **b, int i);
-int mediane(t_stack **a);
-int	nbchunk(int *tab, int size);
-int is_push_safe(t_stack **b, int num);
+void 		pushtop(t_stack **a, t_stack **b, int pos);
+int 		is_push_safe(t_stack **b, int num);
+int 		scanbottom(t_stack **a, int val);
+int 		scantop(t_stack **a, int i);
+int			poschunk(int size);
+int 		medianepos(t_stack **a);
+int			valchunk(int *arr, int size);
+int 		medianeval(t_stack **a);
 
 /*Algo et tri*/
 
@@ -74,11 +78,12 @@ void 	sort3val(t_stack **a);
 void 	sort4val(t_stack **a, t_stack **b);
 void	sort5val(t_stack **a, t_stack **b);
 void 	pushlowpos(t_stack **a, t_stack **b);
-void 	presort6to100val(t_stack **a, t_stack **b, int i);
+void 	presort6to100val(t_stack **a, t_stack **b, int val);
+void 	presort6to100valB(t_stack **a, t_stack **b, int val);
 int 	*sort(int *arr, t_stack **al);
-int 	*array(t_stack **a);
+int 	*array(t_stack **a, int start, int end);
 void 	sort6to100val(t_stack **a, t_stack **b);
-void	optipushb(t_stack **b);
-void	optipusha(t_stack **a);
+void 	pushtopB(t_stack **a, t_stack **b, int pos);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 00:20:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 08:16:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:29:46 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	sb(t_stack *b)
     b->next->value = temp;
     write(1, "sb\n", 3);
 }
-
 
 void ss(t_stack *a, t_stack *b)
 {

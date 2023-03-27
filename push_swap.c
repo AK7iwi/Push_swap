@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 09:54:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:28:48 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void push_swap(t_stack **a,t_stack **b)
 		sort4val(a,b);
 	else if(i == 5)
 		sort5val(a,b);
-	else if(i >= 6)
+	else if(i >= 6 )
 		sort6to100val(a,b);
 }
 
