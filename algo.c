@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/26 07:03:06 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 07:13:49 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void sort3val(t_stack **a)
     int top;
     int mid;
     int bottom;
-
+	
     top = (*a)->value;
     mid = (*a)->next->value;
     bottom = (*a)->next->next->value;
@@ -44,7 +44,7 @@ void sort4val(t_stack **a, t_stack **b)
 {
     int i;
 
-	i = find_low_pos(*a);
+	i = find_min_pos(*a);
 	if(i == 2)
 		sa(*a);
 	else if(i == 3)
@@ -63,7 +63,7 @@ void	sort5val(t_stack **a, t_stack **b)
 {
 	int i;
 
-	i = find_low_pos(*a);
+	i = find_min_pos(*a);
 	if(i == 2)
 		sa(*a);
 	else if(i == 3)

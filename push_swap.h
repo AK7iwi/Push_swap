@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 01:17:23 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 09:49:38 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_stack
 
 /*Main*/
 
-void push_swap(t_stack **a,t_stack **b, char **argv);
+void push_swap(t_stack **a,t_stack **b);
 
 /*Instructions*/
 
@@ -57,10 +57,14 @@ int			ft_dlstsize(t_stack *lst);
 void 		ft_dlstfree(t_stack **lst);
 void		ft_freeall(t_stack **a,t_stack **b);
 int 		ft_dlstmin(t_stack *lst);
-int 		find_low_pos(t_stack * tmp);
+int			ft_dlstmax(t_stack *lst);
+int 		find_min_pos(t_stack * tmp);
+int 		find_max_pos(t_stack *tmp);
 int 		mediane(t_stack **a);
-
-
+int 		find_pos(t_stack *tmp, int i);
+void 		pushtop(t_stack **a, t_stack **b, int i);
+int mediane(t_stack **a);
+int	nbchunk(int *tab, int size);
 
 /*Algo et tri*/
 
@@ -71,7 +75,7 @@ void	sort5val(t_stack **a, t_stack **b);
 void 	pushlowpos(t_stack **a, t_stack **b);
 void 	presort6to100val(t_stack **a, t_stack **b, int i);
 int 	*sort(int *arr, t_stack **al);
-int 	*array(t_stack *tmp);
-void 	sort6to100val(t_stack **a, t_stack **b,char **argv);
+int 	*array(t_stack **a);
+void 	sort6to100val(t_stack **a, t_stack **b);
 
 #endif
