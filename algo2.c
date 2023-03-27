@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 10:27:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 11:09:02 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,7 @@ void presort6to100val(t_stack **a, t_stack **b, int i)
 	while(tmp)
 	{
 		if(tmp->value < i)
-		{
 			pushtop(a,b,j);
-		}
 		tmp = tmp->next;
 		j++;
 	}
@@ -143,6 +141,55 @@ int mediane(t_stack **a)
 	return(cpy);
 }
 
+
+int	nbchunk(int *arr, int size)
+{
+	int	med;
+	int i;
+
+	i = 0;
+	if (size >= 0 && size <= 100)
+	{
+		while (i <= (size / 5))
+			i++;
+	}
+	else if (size >= 101 && size <= 150)
+	{
+		while (i <= (size / 8))
+			i++;
+	}
+	else if (size >= 151 && size <= 250)
+	{
+		while (i <= (size / 12))
+			i++;
+	}
+	else if (size > 250)
+	{
+		while (i <= (size / 17))
+			i++;
+	}
+	med = arr[i];
+	return (med);
+}
+
+void	optipusha(t_stack **a)
+{
+	t_stack *tmp;
+
+	tmp = *a;
+	if(tmp->value < tmp ->next->value)
+		sa(*a);
+}
+
+void	optipushb(t_stack **b)
+{
+	t_stack *tmp;
+
+	tmp = *b;
+	if(tmp->value < tmp ->next->value)
+		sb(*b);
+}
+
 void sort6to100val(t_stack **a, t_stack **b)
 {
 	int i;
@@ -154,35 +201,4 @@ void sort6to100val(t_stack **a, t_stack **b)
 		pushlowpos(a,b);
 }
 
-int	nbchunk(int *arr, int size)
-{
-	int	med;
-	int i;
-
-	i = 0;
-	if (size >= 0 && size <= 100)
-	{
-		while (i <= (size / 4))
-			i++;
-	}
-	else if (size >= 101 && size <= 150)
-	{
-		while (i <= (size / 5))
-			i++;
-	}
-	else if (size >= 151 && size <= 250)
-	{
-		while (i <= (size / 6))
-			i++;
-	}
-	else if (size > 250)
-	{
-		while (i <= (size / 11))
-			i++;
-	}
-	med = arr[i];
-	return (med);
-}
-
-
-
+ 
