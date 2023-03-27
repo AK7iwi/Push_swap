@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 20:22:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 22:27:11 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 22:34:54 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	poschunk(int size)
 		i = size / 4;
 	else if (size > 200)
 		i = size / 5;
-	return(i - 1);
+	return(i);
 }
 
 int medianepos(t_stack **a)

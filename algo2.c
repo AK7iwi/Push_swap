@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 22:19:12 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 22:43:01 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void pushtopB(t_stack **b, t_stack **a, int pos)
     {
         while(pos > 1)
 		{
-			ra(a);
+			rb(b);
 			pos--;
 		}
     }
@@ -123,8 +123,10 @@ void sort6to100val(t_stack **a, t_stack **b)
 	int i;
 	int j;
 	int k;
+	int l;
 
 	j = ft_dlstsize(*a);
+	l = ft_dlstsize(*a);
 	i = medianeval(a);
 	k = medianeval(b);
     while(j > 3)
@@ -133,8 +135,12 @@ void sort6to100val(t_stack **a, t_stack **b)
 		j--;
 	}
 	sort3val(a);
-	while(*b)
+	while(l>0) //*b
+	{
+		//pushlow()
 		presort6to100valB(b,a,k);
+		l--;
+	}
 }
 
 // void optipush(t_stack **l, int val)
