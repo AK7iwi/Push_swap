@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 11:09:02 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 13:49:41 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,11 @@ void presort6to100val(t_stack **a, t_stack **b, int i)
 	while(tmp)
 	{
 		if(tmp->value < i)
+		{
 			pushtop(a,b,j);
+			if(is_push_safe(b,tmp->value) == 1)
+				rb(b);
+		}
 		tmp = tmp->next;
 		j++;
 	}
@@ -135,7 +139,7 @@ int mediane(t_stack **a)
 	
 	arr = array(a);
 	sort(arr,a);
-	mid = nbchunk(arr, ft_dlstsize(*a));
+	mid = ft_dlstsize(*a) / 2;
 	cpy = arr[mid];
 	free(arr);
 	return(cpy);
@@ -172,24 +176,6 @@ int	nbchunk(int *arr, int size)
 	return (med);
 }
 
-void	optipusha(t_stack **a)
-{
-	t_stack *tmp;
-
-	tmp = *a;
-	if(tmp->value < tmp ->next->value)
-		sa(*a);
-}
-
-void	optipushb(t_stack **b)
-{
-	t_stack *tmp;
-
-	tmp = *b;
-	if(tmp->value < tmp ->next->value)
-		sb(*b);
-}
-
 void sort6to100val(t_stack **a, t_stack **b)
 {
 	int i;
@@ -201,4 +187,32 @@ void sort6to100val(t_stack **a, t_stack **b)
 		pushlowpos(a,b);
 }
 
- 
+int is_push_safe(t_stack **b, int num)
+{
+    t_stack *tmp;
+	int i;
+	tmp = *b;
+	
+	i = 0;
+	while(tmp)
+	{
+		if(tmp->value > num)
+			i++;
+		tmp = tmp->next;
+	}
+	if(i == ft_dlstsize(tmp))
+		return(1);
+	// i = 0;
+	// while(tmp)
+	// {
+	// 	if(tmp->value < num)
+	// 		i++;
+	// 	tmp = tmp->next;
+	// }
+	// if(i = ft_dlstsize(tmp))
+	// 	return(2);
+    return (0); 
+}
+
+// tester de pas push si pas min ou max
+
