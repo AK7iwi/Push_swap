@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/26 23:16:43 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 01:17:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void 	sort4val(t_stack **a, t_stack **b);
 void	sort5val(t_stack **a, t_stack **b);
 void 	pushlowpos(t_stack **a, t_stack **b);
 void 	presort6to100val(t_stack **a, t_stack **b, int i);
-void 	sort(int *arr, t_stack *a);
+int 	*sort(int *arr, t_stack **al);
 int 	*array(t_stack *tmp);
 void 	sort6to100val(t_stack **a, t_stack **b,char **argv);
 

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/26 23:17:17 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/03/27 01:51:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,13 @@ void presort6to100val(t_stack **a, t_stack **b, int i)
 	while(tmp)
 	{
 		if(tmp->value < i)
+			find_low_pos()
+			pushlowpos
 			pb(a,b);
 		tmp = tmp->next;
+		(*a) = (*a)->next;
 	}
 }
-
 
 int *array(t_stack *tmp)
 {
@@ -72,45 +74,51 @@ int *array(t_stack *tmp)
 	return(arr);
 }
 
-void sort(int *arr, t_stack *a)
+int *sort(int *arr, t_stack **al)
 {
-	int i;
-	int j;
-	int tmp;
+	int		i;
+	int		j;
+	int		tmp;
+	
 	i = 0;
-	while(i < ft_dlstsize(a))
+	while(i < ft_dlstsize(*al))
 	{
-		j = i +1;
-		while(j < ft_dlstsize(a))
+		j = i + 1;
+		while(j < ft_dlstsize(*al))
 		{
-			if (arr[i] < arr[j])
+			if(arr[i] > arr[j])
 			{
 				tmp = arr[i];
 				arr[i] = arr[j];
-				arr[j] = arr[i];
+				arr[j] = tmp;
 			}
 			j++;
 		}
 		i++;
 	}
+	return(arr);
 }
 
 int mediane(t_stack **a)
 {
 	int mid;
 	int *arr;
-	t_stack *tmp;
+	int i;
+	int cpy;
 	
-	tmp = *a;
-	mid = ft_dlstsize(tmp) / 2;
+	i = 0;
+	mid = ft_dlstsize(*a) / 2;
 	arr = array(*a);
-	sort(arr,tmp);
-	while(mid > 0)
+	sort(arr,a);
+	while(arr[i])
 	{
-		tmp = tmp->next;
-		mid--;
+		if(arr[i] == mid)
+			break ;
+		i++;
 	}
-	return(tmp->value);
+	cpy = arr[i];
+	free(arr);
+	return(cpy);
 }
 
 void sort6to100val(t_stack **a, t_stack **b,char **argv)
