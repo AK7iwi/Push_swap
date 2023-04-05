@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/05 03:11:42 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/05 04:17:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int 	limchunk(t_stack **a);
 int 	limval(t_stack **a, int pos);
 void 	pushbottom(t_stack **a, int pos);
 void 	pushtop(t_stack **a, int pos);
-void 	optipush(t_stack **l);
+void 	optipush(t_stack **b);
 
 
 #endif

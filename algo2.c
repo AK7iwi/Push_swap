@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/05 03:17:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/05 05:08:43 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,14 +109,23 @@ void presort6to100val(t_stack **a, t_stack **b, int lim, int val)
 	else
 		pushbottom(a,pos2);
 	pb(a,b);
-	// optipush(b);
 }
 
-void optipush(t_stack **l)
+void optipush(t_stack **b)
 {
 	t_stack *tmp;
+	int tmpval;
+	int tmpval2;
 
-	tmp = *l;
-	if(tmp->value < tmp->next->value)
-		sb(*l);
+	tmp = *b;
+	tmpval = tmp->value;
+	tmpval2 = tmp->next->value;
+	if ((*b) == NULL || (*b)->next == NULL)
+        return ;
+	while(tmp)
+		tmp = tmp->next;
+	if(tmpval < tmp->value)
+		rb(b);
+	if(tmpval < tmpval2)
+		sb(*b);
 }
