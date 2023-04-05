@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 22:43:01 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/05 03:17:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,115 +38,85 @@ void pushlowpos(t_stack **a, t_stack **b)
 	pa(a, b);
 }
 
-void pushtop(t_stack **a, t_stack **b, int pos)
-{
-	int pos2;
-
-	pos2 = ft_dlstsize(*a) - pos;
-    if(pos < ft_dlstsize(*a) / 2)
-    {
-        while(pos > 1)
-		{
-			ra(a);
-			pos--;
-		}
-    }
-    else
-    {
-        while(pos2 > 0)
-		{
-            rra(a);
-			pos2--;
-		}
-		rra(a);
-	}
-	pb(a, b);
-}
-
-void pushtopB(t_stack **b, t_stack **a, int pos)
-{
-	int pos2;
-
-	pos2 = ft_dlstsize(*b) - pos;
-    if(pos < ft_dlstsize(*b) / 2)
-    {
-        while(pos > 1)
-		{
-			rb(b);
-			pos--;
-		}
-    }
-    else
-    {
-        while(pos2 > 0)
-		{
-            rrb(b);
-			pos2--;
-		}
-		rrb(b);
-	}
-	pa(a, b);
-}
-
-
-void presort6to100valB(t_stack **a, t_stack **b, int val)
-{
-	int pos1;
-	int pos2;
-
-	pos1 = scantop(b,val);
-	pos2 = scanbottom(b,val);
-
-	if (pos1 > pos2)
-		pushtopB(b,a,pos1);
-	else 
-		pushtopB(b,a,pos2);
-}
-
-void presort6to100val(t_stack **a, t_stack **b, int val)
-{
-	int pos1;
-	int pos2;
-
-	pos1 = scantop(a,val);
-	pos2 = scanbottom(a,val);
-
-	if (pos1 > pos2)
-		pushtop(a,b,pos1);
-	else 
-		pushtop(a,b,pos2);
-	
-}
-
-void sort6to100val(t_stack **a, t_stack **b)
-{
-	int i;
-	int j;
-	int k;
-	int l;
-
-	j = ft_dlstsize(*a);
-	l = ft_dlstsize(*a);
-	i = medianeval(a);
-	k = medianeval(b);
-    while(j > 3)
-	{
-		presort6to100val(a,b,i);
-		j--;
-	}
-	sort3val(a);
-	while(l>0) //*b
-	{
-		//pushlow()
-		presort6to100valB(b,a,k);
-		l--;
-	}
-}
-
-// void optipush(t_stack **l, int val)
+// void pushtopB(t_stack **b, t_stack **a, int pos)
 // {
-// 	if(is_push_safe(l,val) == 1)
-// 		rra(l);
-// 	if(is_push_safe(l,val) == 1)
-// 		rrb(l);
+// 	int pos2;
+
+// 	pos2 = ft_dlstsize(*b) - pos;
+//     if(pos < ft_dlstsize(*b) / 2)
+//     {
+//         while(pos > 1)
+// 		{
+// 			rb(b);
+// 			pos--;
+// 		}
+//     }
+//     else
+//     {
+//         while(pos2 > 0)
+// 		{
+//             rrb(b);
+// 			pos2--;
+// 		}
+// 		rrb(b);
+// 	}
+// 	pa(a, b);
 // }
+
+
+// void presort6to100valB(t_stack **a, t_stack **b, int val)
+// {
+// 	int pos1;
+// 	int pos2;
+
+// 	pos1 = scantop(b,val);
+// 	pos2 = scanbottom(b,val);
+
+// 	if (pos1 > pos2)
+// 		pushtopB(b,a,pos1);
+// 	else 
+// 		pushtopB(b,a,pos2);
+// }
+
+
+void pushtop(t_stack **a, int pos)
+{
+	while(pos > 1)
+	{
+		ra(a);
+		pos--;
+	}
+}
+
+void pushbottom(t_stack **a, int pos)
+{
+	while(pos > 0)
+	{
+		rra(a);
+		pos--;
+	}
+}
+void presort6to100val(t_stack **a, t_stack **b, int lim, int val)
+{
+	int pos1;
+	int pos2;
+
+	pos1 = scantop(a,lim,val);
+	pos2 = scanbottom(a,lim,val);
+	
+	if(pos1 < pos2)
+		pushtop(a,pos1);
+	else
+		pushbottom(a,pos2);
+	pb(a,b);
+	// optipush(b);
+}
+
+void optipush(t_stack **l)
+{
+	t_stack *tmp;
+
+	tmp = *l;
+	if(tmp->value < tmp->next->value)
+		sb(*l);
+}

@@ -6,12 +6,11 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 16:28:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/03 21:39:22 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 /*Distribution des algos*/
 
