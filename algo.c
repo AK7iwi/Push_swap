@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/05 04:52:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/07 02:36:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,7 @@ void sort6to100val(t_stack **a, t_stack **b)
 	int val;
 	
 	j = ft_dlstsize(*a);
-	l = ft_dlstsize(*a);
-	lim = limchunk(a);
-	val = limval(a,lim);
-    while(j > 5)
+    while(j > 3)
 	{
 		lim = limchunk(a);
 		val = limval(a,lim);
@@ -101,12 +98,41 @@ void sort6to100val(t_stack **a, t_stack **b)
 		optipush(b);
 		j--;
 	}
-	sort5val(a,b);
-	// k = medianeval(b);
-	while(l>0) //*b
+	sort3val(a);
+	l = ft_dlstsize(*b);
+	while(l > 0)
 	{
 		pushlowpos(a,b);
-		// presort6to100valB(b,a,k);
 		l--;
 	}
 }
+
+// void sort6to100val(t_stack **a, t_stack **b)
+// {
+// 	int j;
+// 	int l;
+// 	int lim;
+// 	int val;
+	
+// 	l = ft_dlstsize(*b);
+// 	// lim = limchunk(a);
+// 	// val = limval(a,lim);
+//     while(*a)
+// 	{
+// 		j = ft_dlstsize(*a);
+// 		lim = limchunk(a);
+// 		val = limval(a,lim);
+// 		while(j > ft_dlstsize(*a) / 2)	
+// 		{
+// 			presort6to100val(a,b,lim,val);
+// 			optipush(b);
+// 			j--;
+// 		}
+// 		// j--;
+// 	}
+// 	while(l>0)
+// 	{
+// 		pushlowpos(a,b);
+// 		l--;
+// 	}
+// }

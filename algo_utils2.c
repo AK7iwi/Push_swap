@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 20:22:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/05 03:11:29 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/07 02:22:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ int scanbottom(t_stack **a, int lim, int val)
 	int pos;
 	int j;
 	
-	j = ft_dlstsize(*a) ;
-	arr = array(a, 0 , j);
-	j = j - 1;
+	j = ft_dlstsize(*a) - 1 ;
+	arr = array(a);
 	while(arr[j] && lim > 0) 
 	{
 		if(arr[j] < val)

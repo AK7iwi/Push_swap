@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/05 04:17:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/07 01:14:23 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
 typedef struct s_stack
 {
 	int				value;
-	struct s_stack *prev;
 	struct s_stack *next;
-	
 }	t_stack;
 
 /*Main*/
@@ -48,7 +46,6 @@ void pb(t_stack **a, t_stack **b);
 int ft_parsing(char **argv);
 int ft_checkdouble(char **argv);
 void ft_error();
-void	ft_putstr(char *str);
 
 /*Fct liste chainee*/
 
@@ -72,9 +69,8 @@ void 	sort4val(t_stack **a, t_stack **b);
 void	sort5val(t_stack **a, t_stack **b);
 void 	pushlowpos(t_stack **a, t_stack **b);
 void 	presort6to100val(t_stack **a, t_stack **b, int lim, int val);
-void 	presort6to100valB(t_stack **a, t_stack **b, int val);
 int 	*sort(int *arr, t_stack **al);
-int 	*array(t_stack **a, int start, int end);
+int 	*array(t_stack **l);
 void 	sort6to100val(t_stack **a, t_stack **b);
 void 	pushtopB(t_stack **a, t_stack **b, int pos);
 int 	limchunk(t_stack **a); 

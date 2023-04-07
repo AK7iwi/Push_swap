@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 18:06:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/07 01:04:07 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void ft_dlstadd_back(t_stack **l, int val)
 		return ; 
 	new_node->value = val;
 	new_node->next = NULL;
-
 	if (*l == NULL)
 		*l = new_node;
 	else
@@ -32,7 +31,6 @@ void ft_dlstadd_back(t_stack **l, int val)
 			last = last->next;
 		last->next = new_node;
 	}
-	
 }
 
 int		ft_dlstsize(t_stack *lst)

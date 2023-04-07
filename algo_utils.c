@@ -6,21 +6,23 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:41 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/05 02:42:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/07 02:32:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *array(t_stack **a, int start, int end)
+int *array(t_stack **l)
 {
 	int *arr;
-	int size;
+	int start;
+	int end;
 	t_stack *tmp;
-
-	tmp = *a;
-	size = ft_dlstsize(*a);
-	arr = malloc(sizeof(int) * (size));
+	
+	tmp = *l;
+	start = 0;
+	end = ft_dlstsize(*l);
+	arr = malloc(sizeof(int) * (end));
 	if(!arr)
 		return(0);
 	while(start < end)
@@ -64,14 +66,14 @@ int limchunk(t_stack **a)
 
 	lim = 0;
 	size = ft_dlstsize(*a);
-	if (size >= 6 && size <= 50)
-		lim = size / 5;
+	if (size >= 0 && size <= 50)
+		lim = size / 2;
 	else if (size >= 51 && size <= 100)
 		lim = size / 5;
 	else if (size >= 101 && size <= 200)
-		lim = size / 10;
-	else if (size > 200)
 		lim = size / 11;
+	else if (size > 200)
+		lim = size / 12;
 	return(lim);
 }
 
@@ -80,7 +82,7 @@ int limval(t_stack **a, int pos)
 	int lim;
 	int *arr;
 
-	arr = array(a,0, ft_dlstsize(*a));
+	arr = array(a);
 	arr = sort(arr,a);
 	lim = arr[pos - 1];
 	free(arr);
