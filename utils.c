@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/07 01:04:07 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/08 08:24:21 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_dlstadd_back(t_stack **l, int val)
+void ft_dlstadd_back(t_stack **lst, int val)
 {
 	t_stack *new_node;
 	t_stack	*last;
@@ -22,11 +22,11 @@ void ft_dlstadd_back(t_stack **l, int val)
 		return ; 
 	new_node->value = val;
 	new_node->next = NULL;
-	if (*l == NULL)
-		*l = new_node;
+	if (*lst == NULL)
+		*lst = new_node;
 	else
 	{
-		last = *l;
+		last = *lst;
 		while (last->next)
 			last = last->next;
 		last->next = new_node;

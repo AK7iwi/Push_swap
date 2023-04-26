@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/07 02:36:03 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:52:53 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	sort5val(t_stack **a, t_stack **b)
 void sort6to100val(t_stack **a, t_stack **b)
 {
 	int j;
-	int l;
 	int lim;
 	int val;
 	
@@ -94,45 +93,14 @@ void sort6to100val(t_stack **a, t_stack **b)
 	{
 		lim = limchunk(a);
 		val = limval(a,lim);
-		presort6to100val(a,b,lim,val);
-		optipush(b);
+		while (ft_dlstmin(*a) < val)
+		{
+			presort6to100val(a,b,lim,val);
+			optipush(b);
+		}
 		j--;
 	}
 	sort3val(a);
-	l = ft_dlstsize(*b);
-	while(l > 0)
-	{
-		pushlowpos(a,b);
-		l--;
-	}
+	while(*b)
+		pushmaxpos(a,b);
 }
-
-// void sort6to100val(t_stack **a, t_stack **b)
-// {
-// 	int j;
-// 	int l;
-// 	int lim;
-// 	int val;
-	
-// 	l = ft_dlstsize(*b);
-// 	// lim = limchunk(a);
-// 	// val = limval(a,lim);
-//     while(*a)
-// 	{
-// 		j = ft_dlstsize(*a);
-// 		lim = limchunk(a);
-// 		val = limval(a,lim);
-// 		while(j > ft_dlstsize(*a) / 2)	
-// 		{
-// 			presort6to100val(a,b,lim,val);
-// 			optipush(b);
-// 			j--;
-// 		}
-// 		// j--;
-// 	}
-// 	while(l>0)
-// 	{
-// 		pushlowpos(a,b);
-// 		l--;
-// 	}
-// }

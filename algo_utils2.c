@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 20:22:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/07 02:22:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/24 13:48:20 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int scanbottom(t_stack **a, int lim, int val)
 		j--;
 		lim--;
 	}
-	pos = j + 1;
+	pos = j;
 	free(arr);
-	return(ft_dlstsize(*a) - pos + 1); 
+	return(ft_dlstsize(*a) - pos); 
 }

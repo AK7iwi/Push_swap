@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/07 02:25:55 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/26 00:49:31 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pushlowpos(t_stack **a, t_stack **b)
+void pushmaxpos(t_stack **a, t_stack **b)
 {
 	int pos1;
 	int pos2;
@@ -21,7 +21,7 @@ void pushlowpos(t_stack **a, t_stack **b)
 	pos2 = ft_dlstsize(*b) - pos1;
     if(pos1 <= ft_dlstsize(*b) / 2)
     {
-        while(pos1 > 0)
+        while(pos1 > 1)
 		{
 			rb(b);
 			pos1--;
@@ -29,7 +29,7 @@ void pushlowpos(t_stack **a, t_stack **b)
     }
     else
     {
-        while(pos2 > 0)
+        while(pos2 >= 0)
 		{
             rrb(b);
 			pos2--;
@@ -73,15 +73,24 @@ void presort6to100val(t_stack **a, t_stack **b, int lim, int val)
 void optipush(t_stack **b)
 {
 	int *arrayB;
+	int lim;
+	int val;
 	int size;
 	
-	if ((*b) == NULL || (*b)->next == NULL) 
+	if ((*b) == NULL || (*b)->next == NULL)
         return ;
 	arrayB = array(b);
-	size = ft_dlstsize(*b) - 1;
-	if(arrayB[0] < arrayB[size])
+	lim = limchunk(b);
+	val = limval(b,lim);
+	size = ft_dlstsize(*b);
+	if(arrayB[0] < arrayB[size - 1])
 		rb(b);
-	if(arrayB[0] < arrayB[1]) //&& ft_dlstsize(*b) > 1
+	else if(arrayB[0] < arrayB[1] && (*b)->value > val)
 		sb(*b);
+	else if ((*b)->value < val)
+	{
+		while ((*b)->value < val)
+			rb(b);
+	}
 	free(arrayB);
 }

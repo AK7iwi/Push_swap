@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:41 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/07 02:32:20 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/26 01:52:41 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,31 +59,31 @@ int *sort(int *arr, t_stack **a)
 	return(arr);
 }
 
-int limchunk(t_stack **a)
+int limchunk(t_stack **l)
 {
 	int lim;
 	int size;
 
 	lim = 0;
-	size = ft_dlstsize(*a);
+	size = ft_dlstsize(*l);
 	if (size >= 0 && size <= 50)
-		lim = size / 2;
-	else if (size >= 51 && size <= 100)
+		lim = size/2 ;
+	else if (size > 50 && size <= 100)
+		lim = size / 3;
+	else if (size >= 101 && size <= 250)
+		lim = size / 4;
+	else if (size >= 301)
 		lim = size / 5;
-	else if (size >= 101 && size <= 200)
-		lim = size / 11;
-	else if (size > 200)
-		lim = size / 12;
 	return(lim);
 }
 
-int limval(t_stack **a, int pos)
+int limval(t_stack **l, int pos)
 {
 	int lim;
 	int *arr;
 
-	arr = array(a);
-	arr = sort(arr,a);
+	arr = array(l);
+	arr = sort(arr,l);
 	lim = arr[pos - 1];
 	free(arr);
 	return(lim);

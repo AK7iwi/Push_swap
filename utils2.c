@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/03/27 19:10:44 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/08 08:30:48 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,49 +65,47 @@ int find_min_pos(t_stack *tmp)
 {
     int min;
 	int i;
-    int pos;
 
     min = ft_dlstmin(tmp);
-    i = 0;
+    i = 1;
     while(tmp)
     {
         if(tmp->value == min)
-            pos = i;
+            break;
         tmp = tmp->next;
-		i++;
+        i++;
     }
-    return(pos);
+    return(i);
 }
 
 int find_max_pos(t_stack *tmp)
 {
     int max;
 	int i;
-    int pos;
 	
     max = ft_dlstmax(tmp);
-    i = 0;
+    i = 1;
     while(tmp)
     {
         if(tmp->value == max)
-			pos = i;
+			break;
         tmp = tmp->next;
-		i++;
+        i++;
     }
-    return(pos);
+    return(i);
 }
 
-int find_pos(t_stack *tmp, int i)
-{
-    int pos;
+// int find_pos(t_stack *tmp, int i)
+// {
+//     int pos;
 	
-    pos = 0;
-    while(tmp)
-    {
-        pos++;
-        if(tmp->value == i)
-            break;
-        tmp = tmp->next;
-    }
-    return(pos);
-}
+//     pos = 0;
+//     while(tmp)
+//     {
+//         pos++;
+//         if(tmp->value == i)
+//             break;
+//         tmp = tmp->next;
+//     }
+//     return(pos);
+// }
