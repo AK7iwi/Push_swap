@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:41 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/26 01:52:41 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/26 03:52:29 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int limchunk(t_stack **l)
 		lim = size / 3;
 	else if (size >= 101 && size <= 250)
 		lim = size / 4;
-	else if (size >= 301)
+	else if (size >= 251)
 		lim = size / 5;
 	return(lim);
 }

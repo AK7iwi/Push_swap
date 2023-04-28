@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:29 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/08 08:30:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/27 08:20:04 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,17 +95,17 @@ int find_max_pos(t_stack *tmp)
     return(i);
 }
 
-// int find_pos(t_stack *tmp, int i)
-// {
-//     int pos;
+int find_pos(t_stack *tmp, int i)
+{
+    int pos;
 	
-//     pos = 0;
-//     while(tmp)
-//     {
-//         pos++;
-//         if(tmp->value == i)
-//             break;
-//         tmp = tmp->next;
-//     }
-//     return(pos);
-// }
+    pos = 0;
+    while(tmp)
+    {
+        pos++;
+        if(tmp->value == i)
+            break;
+        tmp = tmp->next;
+    }
+    return(pos);
+}

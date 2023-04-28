@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_utils2.c                                      :+:      :+:    :+:   */
+/*   sorta.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 20:22:55 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/24 13:48:20 by mfeldman         ###   ########.fr       */
+/*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
+/*   Updated: 2023/04/27 02:05:48 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,36 @@ int scanbottom(t_stack **a, int lim, int val)
 	pos = j;
 	free(arr);
 	return(ft_dlstsize(*a) - pos); 
+}
+
+void pushtop(t_stack **a, int pos)
+{	 
+	while(pos > 1)
+	{
+		ra(a);
+		pos--;
+	}
+}
+
+void pushbottom(t_stack **a, int pos)
+{
+	while(pos > 0)
+	{
+		rra(a);
+		pos--;
+	}
+}
+
+void presort6to100val(t_stack **a,int lim, int val)
+{
+	int pos1;
+	int pos2;
+
+	pos1 = scantop(a,lim,val);
+	pos2 = scanbottom(a,lim,val);
+	
+	if(pos1 <= pos2)
+		pushtop(a,pos1);
+	else
+		pushbottom(a,pos2);
 }

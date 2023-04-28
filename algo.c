@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/24 15:52:53 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:33:56 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void sort3val(t_stack **a)
     int top;
     int mid;
     int bottom;
-	
+
     top = (*a)->value;
     mid = (*a)->next->value;
     bottom = (*a)->next->next->value;
@@ -87,7 +87,7 @@ void sort6to100val(t_stack **a, t_stack **b)
 	int j;
 	int lim;
 	int val;
-	
+
 	j = ft_dlstsize(*a);
     while(j > 3)
 	{
@@ -95,8 +95,9 @@ void sort6to100val(t_stack **a, t_stack **b)
 		val = limval(a,lim);
 		while (ft_dlstmin(*a) < val)
 		{
-			presort6to100val(a,b,lim,val);
-			optipush(b);
+			presort6to100val(a,lim,val);
+			// insert_best_spot(a,b);
+			pb(a,b);
 		}
 		j--;
 	}
