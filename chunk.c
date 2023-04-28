@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_utils.c                                       :+:      :+:    :+:   */
+/*   chunk.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:41 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/26 03:52:29 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/28 22:00:51 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,15 @@ int limchunk(t_stack **l)
 	return(lim);
 }
 
-int limval(t_stack **l, int pos)
+int limval(t_stack **l)
 {
 	int lim;
 	int *arr;
+	int pos;
 
 	arr = array(l);
 	arr = sort(arr,l);
+	pos = limchunk(l);
 	lim = arr[pos - 1];
 	free(arr);
 	return(lim);

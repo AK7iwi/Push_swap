@@ -6,26 +6,64 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 16:08:24 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/28 02:33:30 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/28 21:57:55 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void insert_best_spot(t_stack **a,t_stack **b)
-{
-	int val;
+// int find_best_spot(t_stack **b, int val)
+// {
+// 	t_stack *tmp;
+// 	int pos;
 
-	val = (*a)->value
-}
+// 	tmp = (*b);
+// 	pos = 0;
+// 	while(tmp && tmp->next)
+// 	{
+// 		if(val < tmp->value && val > tmp->next->value)
+// 			{
+// 				pos++;
+// 				break;
+// 			}
+// 		tmp = tmp->next;
+// 		pos++;
+// 	}
+// 	return(pos + 1); //verif pos 
+// }
+
+// void insert_best_spot(t_stack **a,t_stack **b)
+// {
+// 	int val;
+// 	int maxpos;
+// 	int minpos;
+// 	int spotpos;
 
 
-void pushmaxpos(t_stack **a, t_stack **b)
+// 	val = (*a)->value;
+// 	maxpos = find_max_pos(*b);
+// 	minpos = find_min_pos(*b);
+// 	spotpos = find_best_spot(b,val);
+// 	if(val > ft_dlstmax(*b))
+// 		postop(b,minpos);
+// 	else if(val < ft_dlstmin(*b))
+// 		postop(b,maxpos);
+// 	else 
+// 		postop(b,spotpos);
+// }
+
+// void insert_min(t_stack **b)
+// {
+// 	if ((*b)->value == ft_dlstmin(*b))	
+// 		rb(b);
+// }
+
+void postop(t_stack **b, int pos)
 {
 	int pos1;
 	int pos2;
-
-	pos1 = find_max_pos(*b);
+	
+	pos1 = pos;
 	pos2 = ft_dlstsize(*b) - pos1;
 	if (pos1 <= ft_dlstsize(*b) / 2)
 	{
@@ -43,30 +81,28 @@ void pushmaxpos(t_stack **a, t_stack **b)
 			pos2--;
 		}
 	}
-	pa(a, b);
 }
 
-void optipush(t_stack **b)
-{
-	int *arrayB;
-	int lim;
-	int val;
-	int size;
+
+// void optipush(t_stack **b)
+// {
+// 	int *arrayB;
+// 	int val;
+// 	int size;
 	
-	if ((*b) == NULL || (*b)->next == NULL)
-        return ;
-	arrayB = array(b);
-	lim = limchunk(b);
-	val = limval(b,lim);
-	size = ft_dlstsize(*b);
-	if(arrayB[0] < arrayB[size - 1])
-		rb(b);
-	else if(arrayB[0] < arrayB[1] && (*b)->value > val)
-		sb(*b);
-	else if ((*b)->value < val)
-	{
-		while ((*b)->value < val)
-			rb(b);
-	}
-	free(arrayB);
-}
+// 	if ((*b) == NULL || (*b)->next == NULL)
+//         return ;
+// 	arrayB = array(b);
+// 	val = limval(b);
+// 	size = ft_dlstsize(*b);
+// 	if(arrayB[0] < arrayB[size - 1])
+// 		rb(b);
+// 	else if(arrayB[0] < arrayB[1] && (*b)->value > val)
+// 		sb(*b);
+// 	else if ((*b)->value < val)
+// 	{
+// 		while ((*b)->value < val)
+// 			rb(b);
+// 	}
+// 	free(arrayB);
+// }
