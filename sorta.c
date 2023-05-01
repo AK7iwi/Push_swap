@@ -6,31 +6,30 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/27 02:05:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/30 06:22:14 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int scantop(t_stack **a,int lim, int val)
+int scantop(t_stack **a, int val)
 {
 	t_stack *tmp;
 	int pos;
 
 	tmp = *a;
 	pos = 1;
-	while(tmp && lim > 0)
+	while(tmp)
 	{
 		if(tmp->value < val)
 			break;
 		tmp = tmp->next;
-		lim--;
 		pos++;
 	}
 	return(pos);
 }
 
-int scanbottom(t_stack **a, int lim, int val)
+int scanbottom(t_stack **a, int val)
 {
 	int *arr;
 	int pos;
@@ -38,12 +37,11 @@ int scanbottom(t_stack **a, int lim, int val)
 	
 	j = ft_dlstsize(*a) - 1 ;
 	arr = array(a);
-	while(arr[j] && lim > 0) 
+	while(arr[j]) 
 	{
 		if(arr[j] < val)
 			break;
 		j--;
-		lim--;
 	}
 	pos = j;
 	free(arr);
@@ -68,14 +66,13 @@ void pushbottom(t_stack **a, int pos)
 	}
 }
 
-void presort6to100val(t_stack **a,int lim, int val)
+void presort6to100val(t_stack **a, int val)
 {
 	int pos1;
 	int pos2;
 
-	pos1 = scantop(a,lim,val);
-	pos2 = scanbottom(a,lim,val);
-	
+	pos1 = scantop(a,val);
+	pos2 = scanbottom(a,val);
 	if(pos1 <= pos2)
 		pushtop(a,pos1);
 	else

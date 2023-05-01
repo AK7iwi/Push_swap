@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/05 03:19:14 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/01 02:00:18 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	i = 1;
-	if(argc <=1)
+	if(argc <= 1)
 		return(0);
 	if(ft_parsing(argv) == 0 && argc > 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/28 19:04:37 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/04/30 22:20:22 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void pb(t_stack **a, t_stack **b);
 int ft_parsing(char **argv);
 int ft_checkdouble(char **argv);
 void ft_error();
+int	ft_check_int_max_min(char *argv);
+int	ft_isdigitc(char c);
 
 /*Fct liste chainee*/
 
@@ -58,8 +60,8 @@ int			ft_dlstmax(t_stack *lst);
 int 		find_min_pos(t_stack * tmp);
 int 		find_max_pos(t_stack *tmp);
 // int 		find_pos(t_stack *tmp, int i);
-int 		scanbottom(t_stack **a, int lim, int val);
-int 		scantop(t_stack **a,int lim, int val);
+int 		scanbottom(t_stack **a, int val);
+int 		scantop(t_stack **a, int val);
 
 /*Algo et tri*/
 
@@ -68,7 +70,7 @@ void 	sort3val(t_stack **a);
 void 	sort4val(t_stack **a, t_stack **b);
 void	sort5val(t_stack **a, t_stack **b);
 void 	postop(t_stack **b, int pos);
-void 	presort6to100val(t_stack **a,int lim, int val);
+void 	presort6to100val(t_stack **a, int val);
 int 	*sort(int *arr, t_stack **al);
 int 	*array(t_stack **l);
 void 	sort6to100val(t_stack **a, t_stack **b);
@@ -77,7 +79,7 @@ int 	limval(t_stack **a);
 void 	pushbottom(t_stack **a, int pos);
 void 	pushtop(t_stack **a, int pos);
 void 	optipush(t_stack **b);
-// void 	insert_best_spot(t_stack **a, t_stack **b);
-// int 	find_best_spot(t_stack **b, int val);
-// void 	insert_min(t_stack **b);
+void 	insert_best_spot(t_stack **a,t_stack **b);
+int	 	find_best_spot(t_stack **b, int val);
+
 #endif
