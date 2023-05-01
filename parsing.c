@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:44:01 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/01 02:17:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/01 21:49:21 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,64 +18,58 @@ int	ft_isdigitc(char c)
 		return (1);
 	return (0);
 }
-/* Erreur */
 
-void ft_error()
+void	ft_error(void)
 {
 	write(2, "Error\n", 6);
 }
 
-/* Parsing */
-
-//Rajouter int max
-int ft_parsing(char **argv)
+int	ft_parsing(char **argv)
 {
-	size_t i;
-	size_t j;
+	size_t		i;
+	size_t		j;
 
 	i = 1;
-	if(!argv[1])
-			return(1);
-	while(argv[i])
+	if (!argv[1])
+		return (1);
+	while (argv[i])
 	{
 		j = 0;
 		if (argv[i][0] == '+' || argv[i][0] == '-')
 			j++;
 		while (argv[i][j])
 		{
-			if(ft_isdigitc(argv[i][j]) == 0)
-				return(1);
+			if (ft_isdigitc(argv[i][j]) == 0)
+				return (1);
 			j++;
 		}
-		if(ft_check_int_max_min(argv[i]) == 1)
-			return(1);
+		if (ft_check_int_max_min(argv[i]) == 1)
+			return (1);
 		i++;
-	} 
-	if(ft_checkdouble(argv) == 1)
-		return(1);
-	return(0); 
+	}
+	if (ft_checkdouble(argv) == 1)
+		return (1);
+	return (0);
 }
 
-/* Doublons */
-
-int ft_checkdouble(char **argv)
+int	ft_checkdouble(char **argv)
 {
-	size_t i;
-	size_t j;
-	
+	size_t		i;
+	size_t		j;
+
 	i = 1;
-	while(argv[i])
+	while (argv[i])
 	{
 		j = i + 1;
-		while(argv[j])
+		while (argv[j])
 		{
-			if(ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				return(1);
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return(0);
+	return (0);
 }
 
 int	ft_check_int_max_min(char *argv)

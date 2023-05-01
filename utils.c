@@ -6,20 +6,20 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/27 10:14:57 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/01 22:11:03 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_dlstadd_back(t_stack **lst, int val)
+void	ft_dlstadd_back(t_stack **lst, int val)
 {
-	t_stack *new_node;
-	t_stack	*last;
-	
+	t_stack		*new_node;
+	t_stack		*last;
+
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
-		return ; 
+		return ;
 	new_node->value = val;
 	new_node->next = NULL;
 	if (*lst == NULL)
@@ -33,7 +33,7 @@ void ft_dlstadd_back(t_stack **lst, int val)
 	}
 }
 
-int		ft_dlstsize(t_stack *lst)
+int	ft_dlstsize(t_stack *lst)
 {
 	int		size;
 
@@ -66,7 +66,7 @@ void	ft_dlstfree(t_stack **lst)
 	}
 }
 
-void	ft_freeall(t_stack **a,t_stack **b)
+void	ft_freeall(t_stack **a, t_stack **b)
 {
 	ft_dlstfree(a);
 	ft_dlstfree(b);

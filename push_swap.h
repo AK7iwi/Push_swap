@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/04/30 22:20:22 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/01 21:58:45 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,66 +20,59 @@
 typedef struct s_stack
 {
 	int				value;
-	struct s_stack *next;
+	struct s_stack	*next;
 }	t_stack;
 
 /*Main*/
 
-void push_swap(t_stack **a,t_stack **b);
+void	push_swap(t_stack **a, t_stack **b);
 
 /*Instructions*/
 
-void sa(t_stack *a);
-void sb(t_stack *b);
-void ss(t_stack *a, t_stack *b);
-void	ra(t_stack **stack_a);
-void	rb(t_stack **stack_a);
-void rr(t_stack **a, t_stack **b);
-void rra(t_stack **a);
-void rrb(t_stack **b);
-void rrr(t_stack **a, t_stack **b);
-void pa(t_stack **a, t_stack **b);
-void pb(t_stack **a, t_stack **b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ra(t_stack **a);
+void	rb(t_stack **a);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
 
 /* Parsing */
 
-int ft_parsing(char **argv);
-int ft_checkdouble(char **argv);
-void ft_error();
-int	ft_check_int_max_min(char *argv);
-int	ft_isdigitc(char c);
+int		ft_parsing(char **argv);
+int		ft_checkdouble(char **argv);
+void	ft_error(void);
+int		ft_check_int_max_min(char *argv);
+int		ft_isdigitc(char c);
 
 /*Fct liste chainee*/
 
-void 		ft_dlstadd_back(t_stack **l, int val);
-int			ft_dlstsize(t_stack *lst);
-void 		ft_dlstfree(t_stack **lst);
-void		ft_freeall(t_stack **a,t_stack **b);
-int 		ft_dlstmin(t_stack *lst);
-int			ft_dlstmax(t_stack *lst);
-int 		find_min_pos(t_stack * tmp);
-int 		find_max_pos(t_stack *tmp);
-// int 		find_pos(t_stack *tmp, int i);
-int 		scanbottom(t_stack **a, int val);
-int 		scantop(t_stack **a, int val);
+void	ft_dlstadd_back(t_stack **l, int val);
+int		ft_dlstsize(t_stack *lst);
+void	ft_dlstfree(t_stack **lst);
+void	ft_freeall(t_stack **a, t_stack **b);
+int		ft_dlstmin(t_stack *lst);
+int		ft_dlstmax(t_stack *lst);
+int		find_min_pos(t_stack *tmp);
+int		find_max_pos(t_stack *tmp);
+int		scanbottom(t_stack **a, int val);
+int		scantop(t_stack **a, int val);
 
 /*Algo et tri*/
 
-int 	is_sorted(t_stack *lst);
-void 	sort3val(t_stack **a);
-void 	sort4val(t_stack **a, t_stack **b);
+int		is_sorted(t_stack *lst);
+void	sort3val(t_stack **a);
+void	sort4val(t_stack **a, t_stack **b);
 void	sort5val(t_stack **a, t_stack **b);
-void 	postop(t_stack **b, int pos);
-void 	presort6to100val(t_stack **a, int val);
-int 	*sort(int *arr, t_stack **al);
-int 	*array(t_stack **l);
-void 	sort6to100val(t_stack **a, t_stack **b);
-int 	limchunk(t_stack **a); 
-int 	limval(t_stack **a);
-void 	pushbottom(t_stack **a, int pos);
-void 	pushtop(t_stack **a, int pos);
-void 	optipush(t_stack **b);
-void 	insert_best_spot(t_stack **a,t_stack **b);
-int	 	find_best_spot(t_stack **b, int val);
+void	postop(t_stack **b, int pos);
+void	presort6to100val(t_stack **a, int val);
+int		*sort(int *arr, t_stack **al);
+int		*array(t_stack **l);
+void	sort6to100val(t_stack **a, t_stack **b);
+int		limchunk(t_stack **a);
+int		limval(t_stack **a);
+void	pushbottom(t_stack **a, int pos);
+void	pushtop(t_stack **a, int pos);
 
 #endif
