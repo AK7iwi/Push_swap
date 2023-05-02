@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 16:08:24 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/01 22:09:16 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/01 23:08:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,21 @@ void	postop(t_stack **b, int pos)
 	}
 }
 
-void	optipush(t_stack **b)
-{
-	int		*arrayb;
-	int		val;
+// void	optipush(t_stack **b)
+// {
+// 	int		*arrayb;
+// 	int		val;
 
-	if ((*b) == NULL || (*b)->next == NULL)
-		return ;
-	arrayb = array(b);
-	val = limval(b);
-	if (arrayb[0] < arrayb[1])
-		sb(*b);
-	else if ((*b)->value < val)
-	{
-		while ((*b)->value < val)
-			rb(b);
-	}
-	free(arrayb);
-}
+// 	if ((*b) == NULL || (*b)->next == NULL)
+// 		return ;
+// 	arrayb = array(b);
+// 	val = limval(b);
+// 	if (arrayb[0] < arrayb[1])
+// 		sb(*b);
+// 	else if ((*b)->value < val)
+// 	{
+// 		while ((*b)->value < val)
+// 			rb(b);
+// 	}
+// 	free(arrayb);
+// }

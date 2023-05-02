@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/01 21:58:45 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/02 00:42:05 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ft_isdigitc(char c);
 
 /*Fct liste chainee*/
 
-void	ft_dlstadd_back(t_stack **l, int val);
+void	ft_dlstadd_back(t_stack **a, int val);
 int		ft_dlstsize(t_stack *lst);
 void	ft_dlstfree(t_stack **lst);
 void	ft_freeall(t_stack **a, t_stack **b);
@@ -67,8 +67,8 @@ void	sort4val(t_stack **a, t_stack **b);
 void	sort5val(t_stack **a, t_stack **b);
 void	postop(t_stack **b, int pos);
 void	presort6to100val(t_stack **a, int val);
-int		*sort(int *arr, t_stack **al);
-int		*array(t_stack **l);
+int		*sort(int *arr, t_stack **a);
+int		*array(t_stack **a);
 void	sort6to100val(t_stack **a, t_stack **b);
 int		limchunk(t_stack **a);
 int		limval(t_stack **a);
