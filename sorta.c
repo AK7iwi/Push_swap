@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/02 01:59:19 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/05 20:55:26 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	scanbottom(t_stack **a, int val)
 	int		pos;
 	int		j;
 
-	j = ft_dlstsize(*a) - 1 ;
+	j = ft_lstsize(*a) - 1 ;
 	arr = array(a);
 	while (arr[j])
 	{
@@ -45,7 +45,7 @@ int	scanbottom(t_stack **a, int val)
 	}
 	pos = j;
 	free(arr);
-	return (ft_dlstsize(*a) - pos);
+	return (ft_lstsize(*a) - pos);
 }
 
 void	pushtop(t_stack **a, int pos)

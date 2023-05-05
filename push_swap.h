@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/02 00:42:05 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/05 21:02:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int		ft_isdigitc(char c);
 
 /*Fct liste chainee*/
 
-void	ft_dlstadd_back(t_stack **a, int val);
-int		ft_dlstsize(t_stack *lst);
-void	ft_dlstfree(t_stack **lst);
+void	ft_lstadd_back_int(t_stack **lst, int val);
+int		ft_lstsize(t_stack *lst);
+void	ft_lstfree(t_stack **lst);
 void	ft_freeall(t_stack **a, t_stack **b);
-int		ft_dlstmin(t_stack *lst);
-int		ft_dlstmax(t_stack *lst);
+int		ft_lstmin(t_stack *lst);
+int		ft_lstmax(t_stack *lst);
 int		find_min_pos(t_stack *tmp);
 int		find_max_pos(t_stack *tmp);
 int		scanbottom(t_stack **a, int val);

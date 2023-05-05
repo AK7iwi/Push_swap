@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 16:08:24 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/01 23:08:32 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/05 20:55:32 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	postop(t_stack **b, int pos)
 	int		pos2;
 
 	pos1 = pos;
-	pos2 = ft_dlstsize(*b) - pos1;
-	if (pos1 <= ft_dlstsize(*b) / 2)
+	pos2 = ft_lstsize(*b) - pos1;
+	if (pos1 <= ft_lstsize(*b) / 2)
 	{
 		while (pos1 > 1)
 		{

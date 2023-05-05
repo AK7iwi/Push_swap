@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:41 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/02 02:07:29 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/05 20:54:48 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	*array(t_stack **a)
 
 	tmp = *a;
 	start = 0;
-	end = ft_dlstsize(*a);
+	end = ft_lstsize(*a);
 	arr = malloc(sizeof(int) * (end));
 	if (!arr)
-		return (ft_dlstfree(a), NULL);
+		return (ft_lstfree(a), NULL);
 	while (start < end)
 	{
 		arr[start] = tmp->value;
@@ -41,10 +41,10 @@ int	*sort(int *arr, t_stack **a)
 	int		tmp;
 
 	i = 0;
-	while (i < ft_dlstsize(*a))
+	while (i < ft_lstsize(*a))
 	{
 		j = i + 1;
-		while (j < ft_dlstsize(*a))
+		while (j < ft_lstsize(*a))
 		{
 			if (arr[i] > arr[j])
 			{
@@ -65,7 +65,7 @@ int	limchunk(t_stack **l)
 	int	size;
 
 	lim = 0;
-	size = ft_dlstsize (*l);
+	size = ft_lstsize (*l);
 	if (size >= 0 && size <= 50)
 		lim = size / 2 ;
 	else if (size > 50 && size <= 100)

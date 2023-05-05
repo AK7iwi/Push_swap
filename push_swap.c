@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:41:28 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/01 23:27:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/05 20:59:16 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push_swap(t_stack **a, t_stack **b)
 {
 	int		i;
 
-	i = ft_dlstsize(*a);
+	i = ft_lstsize(*a);
 	if (is_sorted(*a) == 1)
 		return ;
 	else if (i == 2)
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	if (ft_parsing(argv) == 0 && argc > 1)
 	{
 		while (argv[i])
-			ft_dlstadd_back(&a, ft_atoi(argv[i++]));
+			ft_lstadd_back_int(&a, ft_atoi(argv[i++]));
 		push_swap(&a, &b);
 	}
 	else

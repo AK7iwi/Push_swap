@@ -6,13 +6,13 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:27:51 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/02 01:50:00 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/05 21:14:06 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_dlstadd_back(t_stack **lst, int val)
+void	ft_lstadd_back_int(t_stack **lst, int val)
 {
 	t_stack		*new_node;
 	t_stack		*last;
@@ -33,7 +33,7 @@ void	ft_dlstadd_back(t_stack **lst, int val)
 	}
 }
 
-int	ft_dlstsize(t_stack *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	int		size;
 
@@ -48,7 +48,7 @@ int	ft_dlstsize(t_stack *lst)
 	return (size);
 }
 
-void	ft_dlstfree(t_stack **lst)
+void	ft_lstfree(t_stack **lst)
 {
 	t_stack	*current;
 	t_stack	*temp;
@@ -68,6 +68,6 @@ void	ft_dlstfree(t_stack **lst)
 
 void	ft_freeall(t_stack **a, t_stack **b)
 {
-	ft_dlstfree(a);
-	ft_dlstfree(b);
+	ft_lstfree(a);
+	ft_lstfree(b);
 }
