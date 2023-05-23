@@ -1,6 +1,6 @@
 CC				= gcc 
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I -g
+CFLAGS			= -Wall -Wextra -Werror -I
 NAME			= push_swap
 OBJS			= $(SRCS:.c=.o) 
 LDLIBS 			= ./libft/libft.a
