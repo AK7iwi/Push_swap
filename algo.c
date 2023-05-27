@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:30:25 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/05 21:14:54 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/05/27 03:26:10 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	sort6to100val(t_stack **a, t_stack **b)
 		j = ft_lstsize(*a);
 	}
 	j = ft_lstsize(*a);
-	if (j >= 3)
+	if (j == 3)
 		sort3val(a);
 	while (*b)
 	{
