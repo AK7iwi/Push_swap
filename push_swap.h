@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/05 21:02:17 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/07/21 04:50:09 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define PUSH_SWAP_H
 
 # include <stdio.h>
-# include "./libft/libft.h"
 # include <limits.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_stack
 {
@@ -61,6 +62,7 @@ int		scantop(t_stack **a, int val);
 
 /*Algo et tri*/
 
+int		ft_atoi(const char *nptr);
 int		is_sorted(t_stack *lst);
 void	sort3val(t_stack **a);
 void	sort4val(t_stack **a, t_stack **b);
