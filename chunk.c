@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:41 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/05 20:54:48 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/07/21 05:43:17 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ int	*array(t_stack **a)
 	return (arr);
 }
 
-int	*sort(int *arr, t_stack **a)
+int	*sort(int *arr, int len)
 {
 	int		i;
 	int		j;
 	int		tmp;
 
 	i = 0;
-	while (i < ft_lstsize(*a))
+	while (i < len)
 	{
 		j = i + 1;
-		while (j < ft_lstsize(*a))
+		while (j < len)
 		{
 			if (arr[i] > arr[j])
 			{
@@ -80,13 +80,15 @@ int	limchunk(t_stack **l)
 int	limval(t_stack **a)
 {
 	int	lim;
+	int	len;
 	int	*arr;
 	int	pos;
 
 	arr = array(a);
+	len = ft_lstsize(*a);
 	if (!arr)
 		return (0);
-	arr = sort(arr, a);
+	arr = sort(arr, len);
 	pos = limchunk(a);
 	lim = arr[pos - 1];
 	free(arr);

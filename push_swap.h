@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/07/21 04:50:09 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/07/21 05:43:34 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	sort4val(t_stack **a, t_stack **b);
 void	sort5val(t_stack **a, t_stack **b);
 void	postop(t_stack **b, int pos);
 void	presort6to100val(t_stack **a, int val);
-int		*sort(int *arr, t_stack **a);
+int		*sort(int *arr, int len);
 int		*array(t_stack **a);
 void	sort6to100val(t_stack **a, t_stack **b);
 int		limchunk(t_stack **a);
