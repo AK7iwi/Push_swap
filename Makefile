@@ -1,8 +1,10 @@
-CC				= gcc 
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
-NAME			= push_swap
-SRCS			=  push_swap.c parsing.c instructions.c instructions2.c utils.c utils2.c algo.c sorta.c sortb.c chunk.c\
+CC		= gcc 
+RM		= rm -f
+CFLAGS	= -Wall -Wextra -Werror -I./includes
+NAME	= push_swap
+SRCS	= ./srcs/push_swap.c ./srcs/algo.c ./srcs/sorta.c ./srcs/sortb.c ./srcs/chunk.c \
+			./instructions/instructions.c ./instructions/instructions2.c ./utils/utils.c ./utils/utils2.c \
+			./parsing/parsing.c \
 
 OBJS			= $(SRCS:.c=.o) 
 
