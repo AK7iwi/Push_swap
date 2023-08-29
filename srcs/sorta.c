@@ -6,27 +6,28 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 04:01:18 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/05/05 20:55:26 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/08/29 20:43:07 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	scantop(t_stack **a, int val)
+void	pushbottom(t_stack **a, int pos)
 {
-	t_stack	*tmp;
-	int		pos;
-
-	tmp = *a;
-	pos = 1;
-	while (tmp)
+	while (pos > 0)
 	{
-		if (tmp->value < val)
-			break ;
-		tmp = tmp->next;
-		pos++;
+		rra(a);
+		pos--;
 	}
-	return (pos);
+}
+
+void	pushtop(t_stack **a, int pos)
+{
+	while (pos > 1)
+	{
+		ra(a);
+		pos--;
+	}
 }
 
 int	scanbottom(t_stack **a, int val)
@@ -48,22 +49,21 @@ int	scanbottom(t_stack **a, int val)
 	return (ft_lstsize(*a) - pos);
 }
 
-void	pushtop(t_stack **a, int pos)
+int	scantop(t_stack **a, int val)
 {
-	while (pos > 1)
-	{
-		ra(a);
-		pos--;
-	}
-}
+	t_stack	*tmp;
+	int		pos;
 
-void	pushbottom(t_stack **a, int pos)
-{
-	while (pos > 0)
+	tmp = *a;
+	pos = 1;
+	while (tmp)
 	{
-		rra(a);
-		pos--;
+		if (tmp->value < val)
+			break ;
+		tmp = tmp->next;
+		pos++;
 	}
+	return (pos);
 }
 
 void	presort6to100val(t_stack **a, int val)
