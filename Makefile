@@ -3,8 +3,8 @@ RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -I./includes
 NAME	= push_swap
 SRCS	= ./srcs/push_swap.c ./srcs/algo.c ./srcs/sorta.c ./srcs/sortb.c ./srcs/chunk.c \
-			./instructions/instructions.c ./instructions/instructions2.c ./utils/utils.c ./utils/utils2.c \
-			./parsing/parsing.c \
+			./srcs/instructions/instructions.c ./srcs/instructions/instructions2.c ./srcs/utils/utils.c ./srcs/utils/utils2.c \
+			./srcs/parsing/parsing.c \
 
 OBJS			= $(SRCS:.c=.o) 
 
