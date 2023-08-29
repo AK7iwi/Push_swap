@@ -6,7 +6,7 @@
 /*   By: mfeldman <mfeldman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 00:42:11 by mfeldman          #+#    #+#             */
-/*   Updated: 2023/07/21 05:43:34 by mfeldman         ###   ########.fr       */
+/*   Updated: 2023/08/29 20:20:25 by mfeldman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+/* Linked list */
 
 typedef struct s_stack
 {
