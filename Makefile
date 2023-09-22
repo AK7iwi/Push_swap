@@ -2,7 +2,7 @@ CC		= gcc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -I./includes
 NAME	= push_swap
-SRCS	= ./srcs/push_swap.c ./srcs/algo.c ./srcs/sorta.c ./srcs/sortb.c ./srcs/chunk.c \
+SRCS	= ./srcs/sort/push_swap.c ./srcs/sort/algo.c ./srcs/sort/sorta.c ./srcs/sort/sortb.c ./srcs/sort/chunk.c \
 			./srcs/instructions/instructions.c ./srcs/instructions/instructions2.c ./srcs/utils/push_swap_utils.c \
 			./srcs/utils/push_swap_utils2.c ./srcs/parsing/parsing.c \
 
