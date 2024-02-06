@@ -11,6 +11,7 @@ The PushSwap program takes a stack of integers as input and sorts them using a s
 Compile the PushSwap program and execute it with a list of integers to be sorted:
 
 make
+
 ./push_swap 3 1 4 2
 
 [Push_swap.en.subject.pdf](https://github.com/AK7iwi/Push_swap/files/14182106/Push_swap.en.subject.pdf)
