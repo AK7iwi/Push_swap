@@ -10,7 +10,7 @@ The PushSwap program takes a stack of integers as input and sorts them using a s
 
 Compile the Push_swap program and execute it with a list of integers to be sorted:
 
-```
+```bash
 make
 ./push_swap 3 1 4 2
 ```
