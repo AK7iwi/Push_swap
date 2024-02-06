@@ -14,4 +14,7 @@ Compile the Push_swap program and execute it with a list of integers to be sorte
 make
 ./push_swap 3 1 4 2
 ```
+
+## Subject
+
 [Push_swap.en.subject.pdf](https://github.com/AK7iwi/Push_swap/files/14182106/Push_swap.en.subject.pdf)
