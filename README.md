@@ -1,4 +1,4 @@
-# PushSwap
+# Push_swap
 
 A sorting algorithm implementation using two stacks with specific operations to arrange a given set of integers in ascending order.
 
@@ -8,7 +8,7 @@ The PushSwap program takes a stack of integers as input and sorts them using a s
 
 ## Usage
 
-Compile the PushSwap program and execute it with a list of integers to be sorted:
+Compile the Push_swap program and execute it with a list of integers to be sorted:
 
 make
 
